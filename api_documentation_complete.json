@@ -1,0 +1,3093 @@
+{
+  "api_endpoint_samples": [
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/prediction/daily-sun",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "date": "25/05/2025",
+        "zodiac": 1,
+        "split": true,
+        "type": "big",
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/prediction/daily-moon",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "date": "25/05/2025",
+        "zodiac": 1,
+        "split": true,
+        "type": "big",
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/prediction/daily-nakshatra",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "date": "25/05/2025",
+        "nakshatra": 1,
+        "split": true,
+        "type": "big",
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/prediction/weekly-sun",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "week": "thisweek",
+        "zodiac": 3,
+        "split": true,
+        "type": "big",
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/prediction/weekly-moon",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "week": "thisweek",
+        "split": true,
+        "type": "big",
+        "zodiac": 3,
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/prediction/yearly",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "year": "2025",
+        "zodiac": 1,
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/prediction/biorhythm",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "dob": "01/01/2024",
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/prediction/day-number",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "dob": "01/01/2024",
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/prediction/numerology",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "name": "Superman",
+        "date": "01/01/2024",
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/horoscope/planet-details",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "dob": "11/03/1994",
+        "tob": "11:40",
+        "lat": "11",
+        "lon": "77",
+        "tz": 5.5,
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/horoscope/ascendant-report",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "dob": "11/03/1994",
+        "tob": "11:40",
+        "lat": "11",
+        "lon": "77",
+        "tz": 5.5,
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/horoscope/planet-report",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "dob": "11/03/1994",
+        "tob": "11:40",
+        "lat": "11",
+        "lon": "77",
+        "tz": 5.5,
+        "planet": "Sun",
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/horoscope/personal-characteristics",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "dob": "11/03/1994",
+        "tob": "11:40",
+        "lat": "11",
+        "lon": "77",
+        "tz": 5.5,
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/horoscope/divisional-charts",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "dob": "11/03/1994",
+        "tob": "11:40",
+        "lat": "11",
+        "lon": "77",
+        "tz": 5.5,
+        "div": "D9",
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/horoscope/chart-image",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "dob": "11/03/1994",
+        "tob": "11:40",
+        "lat": "11",
+        "lon": "77",
+        "tz": 5.5,
+        "div": "D9",
+        "color": "#ff850b3d",
+        "style": "north",
+        "font_size": 15,
+        "font_style": "Nunito",
+        "stroke": 2,
+        "colorful_planets": true,
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/horoscope/ashtakvarga-chart-image",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "dob": "11/03/1994",
+        "tob": "11:40",
+        "lat": "10",
+        "lon": "80",
+        "tz": 5.5,
+        "style": "south",
+        "color": "#ff3366",
+        "planet": "total",
+        "size": 300,
+        "font_size": 30,
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/horoscope/ashtakvarga",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "dob": "11/03/1994",
+        "tob": "11:40",
+        "lat": "11",
+        "lon": "77",
+        "tz": 5.5,
+        "planet": "Sun",
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/horoscope/binnashtakvarga",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "dob": "11/03/1994",
+        "tob": "11:40",
+        "lat": "11",
+        "lon": "77",
+        "tz": 5.5,
+        "planet": "Sun",
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/horoscope/ai-12-month-prediction",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "dob": "11/03/1994",
+        "tob": "11:40",
+        "lat": "11",
+        "lon": "77",
+        "tz": 5.5,
+        "start_date": "01/01/2024",
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/horoscope/planetary-aspects",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "dob": "11/03/1994",
+        "tob": "11:40",
+        "lat": "11",
+        "lon": "77",
+        "tz": 5.5,
+        "type": "houses",
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/horoscope/planets-in-houses",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "dob": "11/03/1994",
+        "tob": "11:40",
+        "lat": "11",
+        "lon": "77",
+        "tz": 5.5,
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/horoscope/western-planets",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "dob": "11/03/1994",
+        "tob": "11:40",
+        "lat": "11",
+        "lon": "77",
+        "tz": 5.5,
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/matching/ashtakoot",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "boy_dob": "11/03/1994",
+        "boy_tob": "11:40",
+        "boy_tz": 5.5,
+        "boy_lat": "11",
+        "boy_lon": "77",
+        "girl_dob": "16/11/1995",
+        "girl_tob": "14:37",
+        "girl_tz": 5.5,
+        "girl_lat": "11",
+        "girl_lon": "77",
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/matching/ashtakoot-with-astro-details",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "boy_dob": "11/03/1994",
+        "boy_tob": "11:40",
+        "boy_tz": 5.5,
+        "boy_lat": "11",
+        "boy_lon": "77",
+        "girl_dob": "16/11/1995",
+        "girl_tob": "14:37",
+        "girl_tz": 5.5,
+        "girl_lat": "11",
+        "girl_lon": "77",
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/matching/dashakoot",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "boy_dob": "11/03/1994",
+        "boy_tob": "11:40",
+        "boy_tz": 5.5,
+        "boy_lat": "11",
+        "boy_lon": "77",
+        "girl_dob": "16/11/1995",
+        "girl_tob": "14:37",
+        "girl_tz": 5.5,
+        "girl_lat": "11",
+        "girl_lon": "77",
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/matching/aggregate-match",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "boy_dob": "11/03/1994",
+        "boy_tob": "11:40",
+        "boy_tz": 5.5,
+        "boy_lat": "11",
+        "boy_lon": "77",
+        "girl_dob": "16/11/1995",
+        "girl_tob": "14:37",
+        "girl_tz": 5.5,
+        "girl_lat": "11",
+        "girl_lon": "77",
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/matching/rajju-vedha-details",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "boy_dob": "11/03/1994",
+        "boy_tob": "11:40",
+        "boy_tz": 5.5,
+        "boy_lat": "11",
+        "boy_lon": "77",
+        "girl_dob": "16/11/1995",
+        "girl_tob": "14:37",
+        "girl_tz": 5.5,
+        "girl_lat": "11",
+        "girl_lon": "77",
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/matching/papasamaya-match",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "boy_dob": "11/03/1994",
+        "boy_tob": "11:40",
+        "boy_tz": 5.5,
+        "boy_lat": "11",
+        "boy_lon": "77",
+        "girl_dob": "16/11/1995",
+        "girl_tob": "14:37",
+        "girl_tz": 5.5,
+        "girl_lat": "11",
+        "girl_lon": "77",
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/matching/nakshatra-match",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "boy_star": 1,
+        "girl_star": 2,
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/matching/western-match",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "boy_sign": 1,
+        "girl_sign": 2,
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/matching/bulk-north-match",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "native_asc_degrees": "122",
+        "native_sun_degrees": "111",
+        "native_moon_degrees": "101",
+        "native_star_no": 6,
+        "native_gender": "male",
+        "native_rasi_no": 8,
+        "match_details": "[[1,1,20.11,12.1,30.12,2232323],[4,2,20,40,30,134423]]",
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/matching/bulk-south-match",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "native_asc_degrees": "122",
+        "native_sun_degrees": "111",
+        "native_moon_degrees": "101",
+        "native_star_no": 6,
+        "native_gender": "male",
+        "native_rasi_no": 8,
+        "match_details": "[[1,1,20.11,12.1,30.12,2232323],[4,2,20,40,30,134423]]",
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/matching/bulk-west-match",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "native_asc_degrees": "122",
+        "native_sun_degrees": "111",
+        "native_moon_degrees": "101",
+        "native_star_no": 6,
+        "native_gender": "male",
+        "native_rasi_no": 8,
+        "match_details": "[[3, 112233],[7, 223344]]",
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/dashas/maha-dasha",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "dob": "11/03/1994",
+        "tob": "11:40",
+        "lat": "11",
+        "lon": "77",
+        "tz": 5.5,
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/dashas/maha-dasha-predictions",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "dob": "11/03/1994",
+        "tob": "11:40",
+        "lat": "11",
+        "lon": "77",
+        "tz": 5.5,
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/dashas/antar-dasha",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "dob": "11/03/1994",
+        "tob": "11:40",
+        "lat": "11",
+        "lon": "77",
+        "tz": 5.5,
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/dashas/paryantar-dasha",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "dob": "11/03/1994",
+        "tob": "11:40",
+        "lat": "11",
+        "lon": "77",
+        "tz": 5.5,
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/dashas/current-mahadasha",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "dob": "11/03/1994",
+        "tob": "11:40",
+        "lat": "11",
+        "lon": "77",
+        "tz": 5.5,
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/dashas/current-mahadasha-full",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "dob": "11/03/1994",
+        "tob": "11:40",
+        "lat": "11",
+        "lon": "77",
+        "tz": 5.5,
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/dashas/char-dasha-current",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "dob": "11/03/1994",
+        "tob": "11:40",
+        "lat": "11",
+        "lon": "77",
+        "tz": 5.5,
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/dashas/char-dasha-main",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "dob": "11/03/1994",
+        "tob": "11:40",
+        "lat": "11",
+        "lon": "77",
+        "tz": 5.5,
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/dashas/char-dasha-sub",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "dob": "11/03/1994",
+        "tob": "11:40",
+        "lat": "11",
+        "lon": "77",
+        "tz": 5.5,
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/dashas/yogini-dasha-main",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "dob": "11/03/1994",
+        "tob": "11:40",
+        "lat": "11",
+        "lon": "77",
+        "tz": 5.5,
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/dashas/yogini-dasha-sub",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "dob": "11/03/1994",
+        "tob": "11:40",
+        "lat": "11",
+        "lon": "77",
+        "tz": 5.5,
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/dashas/specific-sub-dasha",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "dob": "11/03/1994",
+        "tob": "11:40",
+        "lat": "11",
+        "lon": "77",
+        "tz": 5.5,
+        "md": "Sun",
+        "ad": "Moon",
+        "pd": "Mars",
+        "sd": "Mars",
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/extended-horoscope/find-moon-sign",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "dob": "11/03/1994",
+        "tob": "11:40",
+        "lat": "11",
+        "lon": "77",
+        "tz": 5.5,
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/extended-horoscope/find-sun-sign",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "dob": "11/03/1994",
+        "tob": "11:40",
+        "lat": "11",
+        "lon": "77",
+        "tz": 5.5,
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/extended-horoscope/find-ascendant",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "dob": "11/03/1994",
+        "tob": "11:40",
+        "lat": "11",
+        "lon": "77",
+        "tz": 5.5,
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/extended-horoscope/current-sade-sati",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "dob": "11/03/1994",
+        "tob": "11:40",
+        "lat": "11",
+        "lon": "77",
+        "tz": 5.5,
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/extended-horoscope/friendship",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "dob": "11/03/1994",
+        "tob": "11:40",
+        "lat": "11",
+        "lon": "77",
+        "tz": 5.5,
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/extended-horoscope/extended-kundli-details",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "dob": "11/03/1994",
+        "tob": "11:40",
+        "lat": "11",
+        "lon": "77",
+        "tz": 5.5,
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/extended-horoscope/gem-suggestion",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "dob": "11/03/1994",
+        "tob": "11:40",
+        "lat": "11",
+        "lon": "77",
+        "tz": 5.5,
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/extended-horoscope/numero-table",
+      "request_type": "GET",
+      "params": {
+        "name": "adity",
+        "api_key": "YOUR_API_KEY",
+        "dob": "11/03/1994",
+        "tob": "11:40",
+        "lat": "11",
+        "lon": "77",
+        "tz": 5.5,
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/extended-horoscope/rudraksh-suggestion",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "dob": "11/03/1994",
+        "tob": "11:40",
+        "lat": "11",
+        "lon": "77",
+        "tz": 5.5,
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/extended-horoscope/varshapal-details",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "dob": "11/03/1994",
+        "tob": "11:40",
+        "lat": "11",
+        "lon": "77",
+        "tz": 5.5,
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/extended-horoscope/varshapal-year-chart",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "dob": "11/03/1994",
+        "tob": "11:40",
+        "lat": "11",
+        "lon": "77",
+        "tz": 5.5,
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/extended-horoscope/sade-sati-table",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "dob": "11/03/1994",
+        "tob": "11:40",
+        "lat": "11",
+        "lon": "77",
+        "tz": 5.5,
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/extended-horoscope/yoga-list",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "dob": "11/03/1994",
+        "tob": "11:40",
+        "lat": "11",
+        "lon": "77",
+        "tz": 5.5,
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/extended-horoscope/kp-planets",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "dob": "11/03/1994",
+        "tob": "11:40",
+        "lat": "11",
+        "lon": "77",
+        "tz": 5.5,
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/extended-horoscope/kp-houses",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "dob": "11/03/1994",
+        "tob": "11:40",
+        "lat": "11",
+        "lon": "77",
+        "tz": 5.5,
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/extended-horoscope/shad-bala",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "dob": "11/03/1994",
+        "tob": "11:40",
+        "lat": "11",
+        "lon": "77",
+        "tz": 5.5,
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/extended-horoscope/arutha-padas",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "lang": "en",
+        "dob": "11/03/1994",
+        "tob": "11:40",
+        "lat": "11",
+        "lon": "77",
+        "tz": 5.5
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/extended-horoscope/jaimini-karakas",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "lang": "en",
+        "dob": "11/03/1994",
+        "tob": "11:40",
+        "lat": "11",
+        "lon": "77",
+        "tz": 5.5
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/extended-horoscope/varshapal-month-chart",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "dob": "11/03/1994",
+        "tob": "11:40",
+        "lat": "11",
+        "lon": "77",
+        "tz": 5.5,
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/panchang/festivals",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "lang": "en",
+        "date": "11/03/1994",
+        "tz": 5.5,
+        "lat": "11",
+        "lon": "77"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/panchang/panchang",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "date": "11/03/1994",
+        "tz": 5.5,
+        "lat": "11",
+        "lon": "77",
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/panchang/monthly-panchang",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "date": "11/03/1994",
+        "time": "11:40",
+        "tz": 5.5,
+        "lat": "11",
+        "lon": "77",
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/panchang/choghadiya-muhurta",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "date": "11/03/1994",
+        "time": "11:40",
+        "tz": 5.5,
+        "lat": "11",
+        "lon": "77",
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/panchang/hora-muhurta",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "lang": "en",
+        "date": "11/03/1994",
+        "time": "11:40",
+        "tz": 5.5,
+        "lat": "11",
+        "lon": "77"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/panchang/moon-calendar",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "date": "11/03/1994",
+        "tz": 5.5,
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/panchang/moon-phase",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "date": "11/03/1994",
+        "tz": 5.5,
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/panchang/moonrise",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "date": "11/03/1994",
+        "time": "11:40",
+        "tz": 5.5,
+        "lat": "11",
+        "lon": "77",
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/panchang/solarnoon",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "date": "11/03/1994",
+        "time": "11:40",
+        "tz": 5.5,
+        "lat": "11",
+        "lon": "77",
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/panchang/sunrise",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "date": "11/03/1994",
+        "time": "11:40",
+        "tz": 5.5,
+        "lat": "11",
+        "lon": "77",
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/panchang/sunset",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "date": "11/03/1994",
+        "time": "11:40",
+        "tz": 5.5,
+        "lat": "11",
+        "lon": "77",
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/panchang/retrogrades",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "year": "2021",
+        "planet": "Sun",
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/panchang/transit-dates",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "lang": "en",
+        "year": "2024",
+        "planet": "Sun"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/utilities/gem-details",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "gem": "coral",
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/utilities/geo-search",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "city": "coimbatore",
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/utilities/geo-search-advanced",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "city": "New York",
+        "date": "01/12/2024",
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/utilities/radical-number-details",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "radical_number": 5,
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/utilities/nakshatra-vastu-details",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "nakshatra": "Ashwini",
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/dosha/mangal-dosh",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "dob": "11/03/1994",
+        "tob": "11:40",
+        "lat": "11",
+        "lon": "77",
+        "tz": 5.5,
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/dosha/kaalsarp-dosh",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "dob": "11/03/1994",
+        "tob": "11:40",
+        "lat": "11",
+        "lon": "77",
+        "tz": 5.5,
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/dosha/manglik-dosh",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "dob": "11/03/1994",
+        "tob": "11:40",
+        "lat": "11",
+        "lon": "77",
+        "tz": 5.5,
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/dosha/pitra-dosh",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "dob": "11/03/1994",
+        "tob": "11:40",
+        "lat": "11",
+        "lon": "77",
+        "tz": 5.5,
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/dosha/papasamaya",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "dob": "11/03/1994",
+        "tob": "11:40",
+        "lat": "11",
+        "lon": "77",
+        "tz": 5.5,
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/pdf/horoscope-queue",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "name": "hmm",
+        "city": "Jammu and Kashmir",
+        "dob": "04/12/1980",
+        "tob": "09:15",
+        "lat": 24,
+        "lon": 83,
+        "tz": 5.5,
+        "lang": "en",
+        "pob": "Jammu and Kashmir",
+        "style": "north",
+        "company_name": "AstroForU",
+        "color": 75,
+        "address": "Flat No-7545 , B 10 Vasant Kunj, Near Bhatnagar School, New Delhi 110070",
+        "phone": "9971216316",
+        "email": "info@astroforu.com",
+        "website": "https://astrobharat.test",
+        "pdf_type": "small"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/pdf/matching-queue",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "lang": "en",
+        "boy_name": "haha",
+        "boy_dob": "09/10/2024",
+        "boy_tob": "10:41",
+        "boy_tz": 5.5,
+        "boy_lat": 11,
+        "boy_lon": 77,
+        "boy_pob": "Coimbatore",
+        "girl_name": "121212",
+        "girl_dob": "12/11/2011",
+        "girl_tob": "20:28",
+        "girl_tz": 5.5,
+        "girl_lat": 11,
+        "girl_lon": 77,
+        "girl_pob": "dfdfdf",
+        "style": "north",
+        "color": 44,
+        "company_name": "Your Company Name",
+        "address": "asdre",
+        "website": "Sample.com",
+        "email": "sample@sample.Xom",
+        "phone": 33
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/western/natal-chart",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "dob": "11/03/1994",
+        "tob": "11:40",
+        "lat": "11.7749",
+        "lon": "76.994",
+        "tz": 5.5,
+        "house_type": "placidus",
+        "zodiac_type": "tropical",
+        "lang": "en",
+        "size": "400",
+        "format": "base64"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/western/find-sun-sign",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "dob": "11/03/1994",
+        "tob": "11:40",
+        "lat": "11.7749",
+        "lon": "76.994",
+        "tz": 5.5,
+        "house_type": "placidus",
+        "zodiac_type": "tropical",
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/western/transit-chart",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "dob": "11/03/1994",
+        "tob": "11:40",
+        "lat": "11.7749",
+        "lon": "76.994",
+        "tz": 5.5,
+        "transit_date": "16/11/1995",
+        "transit_time": "02:47",
+        "transit_lat": "12.9716",
+        "transit_lon": "80.5946",
+        "transit_tz": "5.5",
+        "house_type": "placidus",
+        "zodiac_type": "tropical",
+        "lang": "en",
+        "size": "400",
+        "format": "base64",
+        "natal_color": "#00ced1"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/western/synastry-chart",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "p1_dob": "11/03/1994",
+        "p1_tob": "11:40",
+        "p1_lat": "11.7749",
+        "p1_lon": "76.994",
+        "p1_tz": "5.5",
+        "p2_dob": "16/11/1995",
+        "p2_tob": "02:47",
+        "p2_lat": "12.9716",
+        "p2_lon": "80.5946",
+        "p2_tz": "5.5",
+        "house_type": "placidus",
+        "zodiac_type": "tropical",
+        "lang": "en",
+        "size": "400",
+        "format": "base64",
+        "p1_color": "#ff0000",
+        "p2_color": "#0000ff"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/western/synastry-aspects",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "p1_dob": "11/03/1994",
+        "p1_tob": "11:40",
+        "p1_lat": "11.7749",
+        "p1_lon": "76.994",
+        "p1_tz": "5.5",
+        "p2_dob": "16/11/1995",
+        "p2_tob": "02:47",
+        "p2_lat": "12.9716",
+        "p2_lon": "80.5946",
+        "p2_tz": "5.5",
+        "house_type": "placidus",
+        "zodiac_type": "tropical",
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/western/synastry-aspect-predictions",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "p1_dob": "11/03/1994",
+        "p1_tob": "11:40",
+        "p1_lat": "11.7749",
+        "p1_lon": "76.994",
+        "p1_tz": "5.5",
+        "p2_dob": "16/11/1995",
+        "p2_tob": "02:47",
+        "p2_lat": "12.9716",
+        "p2_lon": "80.5946",
+        "p2_tz": "5.5",
+        "house_type": "placidus",
+        "zodiac_type": "tropical",
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/western/transit-planets",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "dob": "11/03/1994",
+        "tob": "11:40",
+        "lat": "11.7749",
+        "lon": "76.994",
+        "tz": 5.5,
+        "transit_date": "16/11/1995",
+        "transit_time": "02:47",
+        "transit_lat": "12.9716",
+        "transit_lon": "80.5946",
+        "transit_tz": "5.5",
+        "house_type": "placidus",
+        "zodiac_type": "tropical",
+        "lang": "en",
+        "direction": "p1_to_p2"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/western/daily-transit-prediction",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "dob": "11/03/1994",
+        "tob": "11:40",
+        "lat": "11.7749",
+        "lon": "76.994",
+        "tz": 5.5,
+        "transit_date": "16/11/1995",
+        "transit_time": "02:47",
+        "transit_lat": "12.9716",
+        "transit_lon": "80.5946",
+        "transit_tz": "5.5",
+        "house_type": "placidus",
+        "zodiac_type": "tropical",
+        "lang": "en",
+        "direction": "p1_to_p2"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/western/cusps-details",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "dob": "12/03/1994",
+        "tob": "11:40",
+        "lat": "11",
+        "lon": "80",
+        "tz": 5.5,
+        "lang": "en",
+        "house_type": "placidus",
+        "zodiac_type": "tropical"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/western/aspects",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "dob": "12/03/1994",
+        "tob": "11:40",
+        "lat": "11",
+        "lon": "80",
+        "tz": 5.5,
+        "lang": "en",
+        "house_type": "placidus",
+        "zodiac_type": "tropical"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/western/planet-details",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "dob": "12/03/1994",
+        "tob": "11:40",
+        "lat": "11",
+        "lon": "80",
+        "tz": 5.5,
+        "lang": "en",
+        "house_type": "placidus",
+        "zodiac_type": "tropical"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/western/daily-transits",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "dob": "11/03/1994",
+        "tob": "11:40",
+        "lat": "11.7749",
+        "lon": "76.994",
+        "tz": 5.5,
+        "house_type": "placidus",
+        "zodiac_type": "tropical",
+        "lang": "en",
+        "start_date": "11/12/2024",
+        "planet": "sun"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/western/weekly-transits",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "dob": "11/03/1994",
+        "tob": "11:40",
+        "lat": "11.7749",
+        "lon": "76.994",
+        "tz": 5.5,
+        "house_type": "placidus",
+        "zodiac_type": "tropical",
+        "lang": "en",
+        "start_date": "11/12/2024",
+        "planet": "sun"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/western/monthly-transits",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "dob": "11/03/1994",
+        "tob": "11:40",
+        "lat": "11.7749",
+        "lon": "76.994",
+        "tz": 5.5,
+        "house_type": "placidus",
+        "zodiac_type": "tropical",
+        "lang": "en",
+        "start_date": "11/12/2024",
+        "planet": "sun"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/western/detailed-planet-report",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "dob": "11/03/1994",
+        "tob": "11:40",
+        "lat": "11.7749",
+        "lon": "76.994",
+        "tz": 5.5,
+        "house_type": "placidus",
+        "zodiac_type": "tropical",
+        "lang": "en",
+        "size": "400",
+        "format": "base64",
+        "planet": "sun"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/western/planet-transit-dates",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "year": "2020",
+        "planet": "sun",
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/western/simple-compatibility",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "p1_sign": 1,
+        "p2_sign": 5,
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/western/node-position-report",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "dob": "11/03/1994",
+        "tob": "11:40",
+        "lat": "11.7749",
+        "lon": "76.994",
+        "tz": 5.5,
+        "house_type": "placidus",
+        "zodiac_type": "tropical",
+        "lang": "en",
+        "node": "Northnode"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/western/planet-position-report",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "dob": "11/03/1994",
+        "tob": "11:40",
+        "lat": "11.7749",
+        "lon": "76.994",
+        "tz": 5.5,
+        "house_type": "placidus",
+        "zodiac_type": "tropical",
+        "lang": "en",
+        "planet": "Sun"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/western/ascendant-position-report",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "dob": "11/03/1994",
+        "tob": "11:40",
+        "lat": "11.7749",
+        "lon": "76.994",
+        "tz": 5.5,
+        "house_type": "placidus",
+        "zodiac_type": "tropical",
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/western/synastry-career-predictions",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "p1_dob": "11/03/1994",
+        "p1_tob": "11:40",
+        "p1_lat": "11.7749",
+        "p1_lon": "76.994",
+        "p1_tz": "5.5",
+        "p2_dob": "16/11/1995",
+        "p2_tob": "02:47",
+        "p2_lat": "12.9716",
+        "p2_lon": "80.5946",
+        "p2_tz": "5.5",
+        "house_type": "placidus",
+        "zodiac_type": "tropical",
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/western/synastry-finance-predictions",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "p1_dob": "11/03/1994",
+        "p1_tob": "11:40",
+        "p1_lat": "11.7749",
+        "p1_lon": "76.994",
+        "p1_tz": "5.5",
+        "p2_dob": "16/11/1995",
+        "p2_tob": "02:47",
+        "p2_lat": "12.9716",
+        "p2_lon": "80.5946",
+        "p2_tz": "5.5",
+        "house_type": "placidus",
+        "zodiac_type": "tropical",
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/western/synastry-intimacy-predictions",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "p1_dob": "11/03/1994",
+        "p1_tob": "11:40",
+        "p1_lat": "11.7749",
+        "p1_lon": "76.994",
+        "p1_tz": "5.5",
+        "p2_dob": "16/11/1995",
+        "p2_tob": "02:47",
+        "p2_lat": "12.9716",
+        "p2_lon": "80.5946",
+        "p2_tz": "5.5",
+        "house_type": "placidus",
+        "zodiac_type": "tropical",
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/western/synastry-health-predictions",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "p1_dob": "11/03/1994",
+        "p1_tob": "11:40",
+        "p1_lat": "11.7749",
+        "p1_lon": "76.994",
+        "p1_tz": "5.5",
+        "p2_dob": "16/11/1995",
+        "p2_tob": "02:47",
+        "p2_lat": "12.9716",
+        "p2_lon": "80.5946",
+        "p2_tz": "5.5",
+        "house_type": "placidus",
+        "zodiac_type": "tropical",
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/western/synastry-spirituality-predictions",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "p1_dob": "11/03/1994",
+        "p1_tob": "11:40",
+        "p1_lat": "11.7749",
+        "p1_lon": "76.994",
+        "p1_tz": "5.5",
+        "p2_dob": "16/11/1995",
+        "p2_tob": "02:47",
+        "p2_lat": "12.9716",
+        "p2_lon": "80.5946",
+        "p2_tz": "5.5",
+        "house_type": "placidus",
+        "zodiac_type": "tropical",
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/western/synastry-emotion-predictions",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "p1_dob": "11/03/1994",
+        "p1_tob": "11:40",
+        "p1_lat": "11.7749",
+        "p1_lon": "76.994",
+        "p1_tz": "5.5",
+        "p2_dob": "16/11/1995",
+        "p2_tob": "02:47",
+        "p2_lat": "12.9716",
+        "p2_lon": "80.5946",
+        "p2_tz": "5.5",
+        "house_type": "placidus",
+        "zodiac_type": "tropical",
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/western/yearly-horoscope",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "year": "2025",
+        "zodiac": "7",
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/western/daily-horoscope",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "zodiac": "2",
+        "date": "25/05/2025",
+        "split": "true",
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/western/weekly-horoscope",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "zodiac": "2",
+        "week": "thisweek",
+        "split": "true",
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/tarot/shuffle",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "shuffle_type": "both",
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/tarot/yes-no",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "card_name": "the_fool",
+        "direction": "upright",
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/tarot/career-select",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "card_name": "the_magician",
+        "direction": "reverse",
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/tarot/love-triangle",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "card_self": "the_high_priestess",
+        "card_lover1": "the_empress",
+        "card_lover2": "the_emperor",
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/tarot/daily",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "card_name": "the_hierophant",
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/tarot/in-depth-love",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "card_name": "the_lovers",
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/tarot/erotic-love",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "card_name": "the_chariot",
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/tarot/made-for-each-other-or-not",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "card_name": "strength",
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/tarot/flirt-reading",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "card_name": "the_hermit",
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/tarot/romantic-breakup",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "card_cause": "wheel_of_fortune",
+        "card_advise": "justice",
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/tarot/business-breakup",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "card_cause": "the_hanged_man",
+        "card_advise": "death",
+        "lang": "en"
+      }
+    },
+    {
+      "url": "https://api.vedicastroapi.com/v3-json/tarot/fortune-cookie",
+      "request_type": "GET",
+      "params": {
+        "api_key": "YOUR_API_KEY",
+        "lang": "en"
+      }
+    }
+  ],
+  "param_details": {
+    "api_key": {
+      "sample": "YOUR_API_KEY",
+      "datatype": "string",
+      "description": "A unique identifier provided to you for authenticating API requests. Keep this key secure and do not share it publicly.",
+      "required": true,
+      "template": "",
+      "other_option": []
+    },
+    "date": {
+      "sample": "25/05/2025",
+      "datatype": "string",
+      "description": "",
+      "required": false,
+      "template": "DD/MM/YYYY",
+      "other_option": []
+    },
+    "zodiac": {
+      "sample": 1,
+      "datatype": "integer",
+      "description": "",
+      "required": false,
+      "template": "",
+      "other_option": {
+        "Aries": 1,
+        "Taurus": 2,
+        "Gemini": 3,
+        "Cancer": 4,
+        "Leo": 5,
+        "Virgo": 6,
+        "Libra": 7,
+        "Scorpio": 8,
+        "Sagittarius": 9,
+        "Capricorn": 10,
+        "Aquarius": 11,
+        "Pisces": 12
+      }
+    },
+    "split": {
+      "sample": true,
+      "datatype": "boolean",
+      "description": "",
+      "required": false,
+      "template": "",
+      "other_option": [
+        true,
+        false
+      ]
+    },
+    "type": {
+      "sample": "big",
+      "datatype": "string",
+      "description": "",
+      "required": false,
+      "template": "",
+      "other_option": [
+        "big",
+        "small"
+      ]
+    },
+    "lang": {
+      "sample": "en",
+      "datatype": "string",
+      "description": "",
+      "required": false,
+      "template": "",
+      "other_option": {
+        "Bengali": "be",
+        "French": "fr",
+        "Hindi": "hi",
+        "Kannada": "ka",
+        "Malayalam": "ml",
+        "Spanish": "sp",
+        "Tamil": "ta",
+        "Telugu": "te",
+        "Marathi": "mr",
+        "Sinhalese": "si",
+        "Nepali": "ne",
+        "Korean": "ko",
+        "Japanese": "ja",
+        "Gujarati": "gu",
+        "Portuguese": "pt",
+        "German": "de",
+        "Turkish": "tr",
+        "Russian": "ru",
+        "Italian": "it",
+        "Dutch": "nl",
+        "Polish": "pl"
+      }
+    },
+    "nakshatra": {
+      "sample": 1,
+      "datatype": "integer",
+      "description": "",
+      "required": false,
+      "template": "",
+      "other_option": {
+        "Ashwini": 1,
+        "Bharani": 2,
+        "Krittika": 3,
+        "Rohini": 4,
+        "Mrigashirsha": 5,
+        "Ardra": 6,
+        "Punarvasu": 7,
+        "Pushya": 8,
+        "Ashlesha": 9,
+        "Magha": 10,
+        "PurvaPhalguni": 11,
+        "UttaraPhalguni": 12,
+        "Hasta": 13,
+        "Chitra": 14,
+        "Swati": 15,
+        "Vishakha": 16,
+        "Anuradha": 17,
+        "Jyeshtha": 18,
+        "Mula": 19,
+        "PurvaAshadha": 20,
+        "UttaraAshadha": 21,
+        "Shravana": 22,
+        "Dhanishta": 23,
+        "Shatabhisha": 24,
+        "PurvaBhadrapada": 25,
+        "UttaraBhadrapada": 26,
+        "Revati": 27
+      }
+    },
+    "week": {
+      "sample": "thisweek",
+      "datatype": "string",
+      "description": "",
+      "required": false,
+      "template": "",
+      "other_option": [
+        "thisweek",
+        "nextweek"
+      ]
+    },
+    "year": {
+      "sample": "2025",
+      "datatype": "string",
+      "description": "",
+      "required": false,
+      "template": "YYYY",
+      "other_option": []
+    },
+    "dob": {
+      "sample": "01/01/2024",
+      "datatype": "string",
+      "description": "",
+      "required": false,
+      "template": "DD/MM/YYYY",
+      "other_option": []
+    },
+    "name": {
+      "sample": "Superman",
+      "datatype": "string",
+      "description": "",
+      "required": false,
+      "template": "",
+      "other_option": []
+    },
+    "tob": {
+      "sample": "11:40",
+      "datatype": "string",
+      "description": "",
+      "required": false,
+      "template": "HH:MM",
+      "other_option": []
+    },
+    "lat": {
+      "sample": "11",
+      "datatype": "float",
+      "description": "Latitude of the location in decimal degrees. Positive for north, negative for south. Example: 11.1234",
+      "required": false,
+      "template": "",
+      "other_option": []
+    },
+    "lon": {
+      "sample": "77",
+      "datatype": "float",
+      "description": "Longitude of the location in decimal degrees. Positive for east, negative for west. Example: 77.5678",
+      "required": false,
+      "template": "",
+      "other_option": []
+    },
+    "tz": {
+      "sample": 5.5,
+      "datatype": "float",
+      "description": "Timezone offset from UTC in decimal hours. Use positive values for locations east of UTC and negative for west. For example, 5.5 for UTC+5:30, -4 for UTC-4:00.",
+      "required": false,
+      "template": "",
+      "other_option": []
+    },
+    "planet": {
+      "sample": "Sun",
+      "datatype": "string",
+      "description": "",
+      "required": false,
+      "template": "",
+      "other_option": {
+        "Sun": "Sun",
+        "Moon": "Moon",
+        "Mercury": "Mercury",
+        "Venus": "Venus",
+        "Mars": "Mars",
+        "Saturn": "Saturn",
+        "Jupiter": "Jupiter",
+        "Rahu": "Rahu",
+        "Ketu": "Ketu"
+      }
+    },
+    "div": {
+      "sample": "D9",
+      "datatype": "string",
+      "description": "",
+      "required": false,
+      "template": "",
+      "other_option": {
+        "D1": "D1",
+        "D2": "D2",
+        "D3": "D3",
+        "D3-s": "D3-s",
+        "D4": "D4",
+        "D5": "D5",
+        "D7": "D7",
+        "D8": "D8",
+        "D9": "D9",
+        "D10": "D10",
+        "D10-R": "D10-R",
+        "D12": "D12",
+        "D16": "D16",
+        "D20": "D20",
+        "D24": "D24",
+        "D24-R": "D24-R",
+        "D27": "D27",
+        "D30": "D30",
+        "D40": "D40",
+        "D45": "D45",
+        "D60": "D60",
+        "chalit": "chalit",
+        "sun": "sun",
+        "moon": "moon",
+        "kp_chalit": "kp_chalit",
+        "transit": "transit"
+      }
+    },
+    "color": {
+      "sample": "#ff850b3d",
+      "datatype": "string",
+      "description": "",
+      "required": false,
+      "template": "",
+      "other_option": []
+    },
+    "style": {
+      "sample": "north",
+      "datatype": "string",
+      "description": "",
+      "required": false,
+      "template": "",
+      "other_option": [
+        "north",
+        "south"
+      ]
+    },
+    "font_size": {
+      "sample": 15,
+      "datatype": "number",
+      "description": "",
+      "required": false,
+      "template": "",
+      "other_option": []
+    },
+    "font_style": {
+      "sample": "Nunito",
+      "datatype": "string",
+      "description": "",
+      "required": false,
+      "template": "",
+      "other_option": []
+    },
+    "stroke": {
+      "sample": 2,
+      "datatype": "number",
+      "description": "",
+      "required": false,
+      "template": "",
+      "other_option": []
+    },
+    "colorful_planets": {
+      "sample": true,
+      "datatype": "boolean",
+      "description": "",
+      "required": false,
+      "template": "",
+      "other_option": [
+        true,
+        false
+      ]
+    },
+    "size": {
+      "sample": 300,
+      "datatype": "number",
+      "description": "",
+      "required": false,
+      "template": "",
+      "other_option": []
+    },
+    "start_date": {
+      "sample": "01/01/2024",
+      "datatype": "string",
+      "description": "",
+      "required": false,
+      "template": "DD/MM/YYYY",
+      "other_option": []
+    },
+    "boy_dob": {
+      "sample": "11/03/1994",
+      "datatype": "string",
+      "description": "",
+      "required": false,
+      "template": "DD/MM/YYYY",
+      "other_option": []
+    },
+    "boy_tob": {
+      "sample": "11:40",
+      "datatype": "string",
+      "description": "",
+      "required": false,
+      "template": "HH:mm",
+      "other_option": []
+    },
+    "boy_tz": {
+      "sample": 5.5,
+      "datatype": "number",
+      "description": "",
+      "required": false,
+      "template": "",
+      "other_option": []
+    },
+    "boy_lat": {
+      "sample": "11",
+      "datatype": "string",
+      "description": "",
+      "required": false,
+      "template": "",
+      "other_option": []
+    },
+    "boy_lon": {
+      "sample": "77",
+      "datatype": "string",
+      "description": "",
+      "required": false,
+      "template": "",
+      "other_option": []
+    },
+    "girl_dob": {
+      "sample": "16/11/1995",
+      "datatype": "string",
+      "description": "",
+      "required": false,
+      "template": "DD/MM/YYYY",
+      "other_option": []
+    },
+    "girl_tob": {
+      "sample": "14:37",
+      "datatype": "string",
+      "description": "",
+      "required": false,
+      "template": "HH:mm",
+      "other_option": []
+    },
+    "girl_tz": {
+      "sample": 5.5,
+      "datatype": "number",
+      "description": "",
+      "required": false,
+      "template": "",
+      "other_option": []
+    },
+    "girl_lat": {
+      "sample": "11",
+      "datatype": "string",
+      "description": "",
+      "required": false,
+      "template": "",
+      "other_option": []
+    },
+    "girl_lon": {
+      "sample": "77",
+      "datatype": "string",
+      "description": "",
+      "required": false,
+      "template": "",
+      "other_option": []
+    },
+    "boy_star": {
+      "sample": 1,
+      "datatype": "number",
+      "description": "",
+      "required": false,
+      "template": "",
+      "other_option": {
+        "Ashwini": 1,
+        "Bharani": 2,
+        "Krittika": 3,
+        "Rohini": 4,
+        "Mrigashirsha": 5,
+        "Ardra": 6,
+        "Punarvasu": 7,
+        "Pushya": 8,
+        "Ashlesha": 9,
+        "Magha": 10,
+        "PurvaPhalguni": 11,
+        "UttaraPhalguni": 12,
+        "Hasta": 13,
+        "Chitra": 14,
+        "Swati": 15,
+        "Vishakha": 16,
+        "Anuradha": 17,
+        "Jyeshtha": 18,
+        "Mula": 19,
+        "PurvaAshadha": 20,
+        "UttaraAshadha": 21,
+        "Shravana": 22,
+        "Dhanishta": 23,
+        "Shatabhisha": 24,
+        "PurvaBhadrapada": 25,
+        "UttaraBhadrapada": 26,
+        "Revati": 27
+      }
+    },
+    "girl_star": {
+      "sample": 2,
+      "datatype": "number",
+      "description": "",
+      "required": false,
+      "template": "",
+      "other_option": {
+        "Ashwini": 1,
+        "Bharani": 2,
+        "Krittika": 3,
+        "Rohini": 4,
+        "Mrigashirsha": 5,
+        "Ardra": 6,
+        "Punarvasu": 7,
+        "Pushya": 8,
+        "Ashlesha": 9,
+        "Magha": 10,
+        "PurvaPhalguni": 11,
+        "UttaraPhalguni": 12,
+        "Hasta": 13,
+        "Chitra": 14,
+        "Swati": 15,
+        "Vishakha": 16,
+        "Anuradha": 17,
+        "Jyeshtha": 18,
+        "Mula": 19,
+        "PurvaAshadha": 20,
+        "UttaraAshadha": 21,
+        "Shravana": 22,
+        "Dhanishta": 23,
+        "Shatabhisha": 24,
+        "PurvaBhadrapada": 25,
+        "UttaraBhadrapada": 26,
+        "Revati": 27
+      }
+    },
+    "boy_sign": {
+      "sample": 1,
+      "datatype": "number",
+      "description": "",
+      "required": false,
+      "template": "",
+      "other_option": {
+        "Aries": 1,
+        "Taurus": 2,
+        "Gemini": 3,
+        "Cancer": 4,
+        "Leo": 5,
+        "Virgo": 6,
+        "Libra": 7,
+        "Scorpio": 8,
+        "Sagittarius": 9,
+        "Capricorn": 10,
+        "Aquarius": 11,
+        "Pisces": 12
+      }
+    },
+    "girl_sign": {
+      "sample": 2,
+      "datatype": "number",
+      "description": "",
+      "required": false,
+      "template": "",
+      "other_option": {
+        "Aries": 1,
+        "Taurus": 2,
+        "Gemini": 3,
+        "Cancer": 4,
+        "Leo": 5,
+        "Virgo": 6,
+        "Libra": 7,
+        "Scorpio": 8,
+        "Sagittarius": 9,
+        "Capricorn": 10,
+        "Aquarius": 11,
+        "Pisces": 12
+      }
+    },
+    "native_asc_degrees": {
+      "sample": "122",
+      "datatype": "string",
+      "description": "",
+      "required": false,
+      "template": "",
+      "other_option": []
+    },
+    "native_sun_degrees": {
+      "sample": "111",
+      "datatype": "string",
+      "description": "",
+      "required": false,
+      "template": "",
+      "other_option": []
+    },
+    "native_moon_degrees": {
+      "sample": "101",
+      "datatype": "string",
+      "description": "",
+      "required": false,
+      "template": "",
+      "other_option": []
+    },
+    "native_star_no": {
+      "sample": 6,
+      "datatype": "number",
+      "description": "",
+      "required": false,
+      "template": "",
+      "other_option": {
+        "Ashwini": 1,
+        "Bharani": 2,
+        "Krittika": 3,
+        "Rohini": 4,
+        "Mrigashirsha": 5,
+        "Ardra": 6,
+        "Punarvasu": 7,
+        "Pushya": 8,
+        "Ashlesha": 9,
+        "Magha": 10,
+        "PurvaPhalguni": 11,
+        "UttaraPhalguni": 12,
+        "Hasta": 13,
+        "Chitra": 14,
+        "Swati": 15,
+        "Vishakha": 16,
+        "Anuradha": 17,
+        "Jyeshtha": 18,
+        "Mula": 19,
+        "PurvaAshadha": 20,
+        "UttaraAshadha": 21,
+        "Shravana": 22,
+        "Dhanishta": 23,
+        "Shatabhisha": 24,
+        "PurvaBhadrapada": 25,
+        "UttaraBhadrapada": 26,
+        "Revati": 27
+      }
+    },
+    "native_gender": {
+      "sample": "male",
+      "datatype": "string",
+      "description": "",
+      "required": false,
+      "template": "",
+      "other_option": [
+        "male",
+        "female"
+      ]
+    },
+    "native_rasi_no": {
+      "sample": 8,
+      "datatype": "number",
+      "description": "",
+      "required": false,
+      "template": "",
+      "other_option": {
+        "Aries": 1,
+        "Taurus": 2,
+        "Gemini": 3,
+        "Cancer": 4,
+        "Leo": 5,
+        "Virgo": 6,
+        "Libra": 7,
+        "Scorpio": 8,
+        "Sagittarius": 9,
+        "Capricorn": 10,
+        "Aquarius": 11,
+        "Pisces": 12
+      }
+    },
+    "match_details": {
+      "sample": "[[1,1,20.11,12.1,30.12,2232323],[4,2,20,40,30,134423]]",
+      "datatype": "string (JSON array of arrays)",
+      "description": "",
+      "required": false,
+      "template": "",
+      "other_option": []
+    },
+    "md": {
+      "sample": "Sun",
+      "datatype": "string",
+      "description": "",
+      "required": false,
+      "template": "",
+      "other_option": {
+        "Sun": "Sun",
+        "Moon": "Moon",
+        "Mercury": "Mercury",
+        "Venus": "Venus",
+        "Mars": "Mars",
+        "Saturn": "Saturn",
+        "Jupiter": "Jupiter",
+        "Rahu": "Rahu",
+        "Ketu": "Ketu"
+      }
+    },
+    "ad": {
+      "sample": "Moon",
+      "datatype": "string",
+      "description": "",
+      "required": false,
+      "template": "",
+      "other_option": {
+        "Sun": "Sun",
+        "Moon": "Moon",
+        "Mercury": "Mercury",
+        "Venus": "Venus",
+        "Mars": "Mars",
+        "Saturn": "Saturn",
+        "Jupiter": "Jupiter",
+        "Rahu": "Rahu",
+        "Ketu": "Ketu"
+      }
+    },
+    "pd": {
+      "sample": "Mars",
+      "datatype": "string",
+      "description": "",
+      "required": false,
+      "template": "",
+      "other_option": {
+        "Sun": "Sun",
+        "Moon": "Moon",
+        "Mercury": "Mercury",
+        "Venus": "Venus",
+        "Mars": "Mars",
+        "Saturn": "Saturn",
+        "Jupiter": "Jupiter",
+        "Rahu": "Rahu",
+        "Ketu": "Ketu"
+      }
+    },
+    "sd": {
+      "sample": "Mars",
+      "datatype": "string",
+      "description": "",
+      "required": false,
+      "template": "",
+      "other_option": {
+        "Sun": "Sun",
+        "Moon": "Moon",
+        "Mercury": "Mercury",
+        "Venus": "Venus",
+        "Mars": "Mars",
+        "Saturn": "Saturn",
+        "Jupiter": "Jupiter",
+        "Rahu": "Rahu",
+        "Ketu": "Ketu"
+      }
+    },
+    "time": {
+      "sample": "11:40",
+      "datatype": "string",
+      "description": "",
+      "required": false,
+      "template": "HH:mm",
+      "other_option": []
+    },
+    "gem": {
+      "sample": "coral",
+      "datatype": "string",
+      "description": "",
+      "required": false,
+      "template": "",
+      "other_option": {
+        "cat_eye": "cat_eye",
+        "diamond": "diamond",
+        "ruby": "ruby",
+        "pearl": "pearl",
+        "coral": "coral",
+        "gomedhaka": "gomedhaka",
+        "yellow_sapphire": "yellow_sapphire",
+        "blue_sapphire": "blue_sapphire",
+        "emerald": "emerald"
+      }
+    },
+    "city": {
+      "sample": "coimbatore",
+      "datatype": "string",
+      "description": "",
+      "required": false,
+      "template": "",
+      "other_option": []
+    },
+    "radical_number": {
+      "sample": 5,
+      "datatype": "number",
+      "description": "",
+      "required": false,
+      "template": "",
+      "other_option": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    "pob": {
+      "sample": "Jammu and Kashmir",
+      "datatype": "string",
+      "description": "",
+      "required": false,
+      "template": "",
+      "other_option": []
+    },
+    "company_name": {
+      "sample": "AstroForU",
+      "datatype": "string",
+      "description": "",
+      "required": false,
+      "template": "",
+      "other_option": []
+    },
+    "address": {
+      "sample": "Flat No-7545 , B 10 Vasant Kunj, Near Bhatnagar School, New Delhi 110070",
+      "datatype": "string",
+      "description": "",
+      "required": false,
+      "template": "",
+      "other_option": []
+    },
+    "phone": {
+      "sample": "9971216316",
+      "datatype": "string",
+      "description": "",
+      "required": false,
+      "template": "",
+      "other_option": []
+    },
+    "email": {
+      "sample": "info@astroforu.com",
+      "datatype": "string",
+      "description": "",
+      "required": false,
+      "template": "",
+      "other_option": []
+    },
+    "website": {
+      "sample": "https://astrobharat.test",
+      "datatype": "string",
+      "description": "",
+      "required": false,
+      "template": "",
+      "other_option": []
+    },
+    "pdf_type": {
+      "sample": "small",
+      "datatype": "string",
+      "description": "",
+      "required": false,
+      "template": "",
+      "other_option": [
+        "small",
+        "medium",
+        "large",
+        "prediction",
+        "12_month_prediction"
+      ]
+    },
+    "boy_name": {
+      "sample": "haha",
+      "datatype": "string",
+      "description": "",
+      "required": false,
+      "template": "",
+      "other_option": []
+    },
+    "boy_pob": {
+      "sample": "Coimbatore",
+      "datatype": "string",
+      "description": "",
+      "required": false,
+      "template": "",
+      "other_option": []
+    },
+    "girl_name": {
+      "sample": "121212",
+      "datatype": "string",
+      "description": "",
+      "required": false,
+      "template": "",
+      "other_option": []
+    },
+    "girl_pob": {
+      "sample": "dfdfdf",
+      "datatype": "string",
+      "description": "",
+      "required": false,
+      "template": "",
+      "other_option": []
+    },
+    "house_type": {
+      "sample": "placidus",
+      "datatype": "string",
+      "description": "",
+      "required": false,
+      "template": "",
+      "other_option": {
+        "placidus": "placidus",
+        "koch": "koch",
+        "topocentric": "topocentric",
+        "regiomontanus": "regiomontanus",
+        "campanus": "campanus",
+        "whole_sign": "whole-sign",
+        "equal_house": "equal-house"
+      }
+    },
+    "zodiac_type": {
+      "sample": "tropical",
+      "datatype": "string",
+      "description": "",
+      "required": false,
+      "template": "",
+      "other_option": [
+        "Sidereal",
+        "Tropical"
+      ]
+    },
+    "format": {
+      "sample": "base64",
+      "datatype": "string",
+      "description": "",
+      "required": false,
+      "template": "",
+      "other_option": [
+        "base64",
+        "utf8"
+      ]
+    },
+    "transit_date": {
+      "sample": "16/11/1995",
+      "datatype": "string",
+      "description": "",
+      "required": false,
+      "template": "DD/MM/YYYY",
+      "other_option": []
+    },
+    "transit_time": {
+      "sample": "02:47",
+      "datatype": "string",
+      "description": "",
+      "required": false,
+      "template": "HH:mm",
+      "other_option": []
+    },
+    "transit_lat": {
+      "sample": "12.9716",
+      "datatype": "string",
+      "description": "",
+      "required": false,
+      "template": "",
+      "other_option": []
+    },
+    "transit_lon": {
+      "sample": "80.5946",
+      "datatype": "string",
+      "description": "",
+      "required": false,
+      "template": "",
+      "other_option": []
+    },
+    "transit_tz": {
+      "sample": "5.5",
+      "datatype": "string",
+      "description": "",
+      "required": false,
+      "template": "",
+      "other_option": []
+    },
+    "natal_color": {
+      "sample": "#00ced1",
+      "datatype": "string",
+      "description": "APIs do not accept color values with #; they may require only hex digits or a different format.",
+      "required": false,
+      "template": "",
+      "other_option": []
+    },
+    "p1_dob": {
+      "sample": "11/03/1994",
+      "datatype": "string",
+      "description": "",
+      "required": false,
+      "template": "DD/MM/YYYY",
+      "other_option": []
+    },
+    "p1_tob": {
+      "sample": "11:40",
+      "datatype": "string",
+      "description": "",
+      "required": false,
+      "template": "HH:mm",
+      "other_option": []
+    },
+    "p1_lat": {
+      "sample": "11.7749",
+      "datatype": "string",
+      "description": "",
+      "required": false,
+      "template": "",
+      "other_option": []
+    },
+    "p1_lon": {
+      "sample": "76.994",
+      "datatype": "string",
+      "description": "",
+      "required": false,
+      "template": "",
+      "other_option": []
+    },
+    "p1_tz": {
+      "sample": "5.5",
+      "datatype": "string",
+      "description": "",
+      "required": false,
+      "template": "",
+      "other_option": []
+    },
+    "p2_dob": {
+      "sample": "16/11/1995",
+      "datatype": "string",
+      "description": "",
+      "required": false,
+      "template": "DD/MM/YYYY",
+      "other_option": []
+    },
+    "p2_tob": {
+      "sample": "02:47",
+      "datatype": "string",
+      "description": "",
+      "required": false,
+      "template": "HH:mm",
+      "other_option": []
+    },
+    "p2_lat": {
+      "sample": "12.9716",
+      "datatype": "string",
+      "description": "",
+      "required": false,
+      "template": "",
+      "other_option": []
+    },
+    "p2_lon": {
+      "sample": "80.5946",
+      "datatype": "string",
+      "description": "",
+      "required": false,
+      "template": "",
+      "other_option": []
+    },
+    "p2_tz": {
+      "sample": "5.5",
+      "datatype": "string",
+      "description": "",
+      "required": false,
+      "template": "",
+      "other_option": []
+    },
+    "p1_color": {
+      "sample": "#ff0000",
+      "datatype": "string",
+      "description": "",
+      "required": false,
+      "template": "",
+      "other_option": []
+    },
+    "p2_color": {
+      "sample": "#0000ff",
+      "datatype": "string",
+      "description": "",
+      "required": false,
+      "template": "",
+      "other_option": []
+    },
+    "direction": {
+      "sample": "p1_to_p2",
+      "datatype": "string",
+      "description": "",
+      "required": false,
+      "template": "",
+      "other_option": []
+    },
+    "p1_sign": {
+      "sample": 1,
+      "datatype": "string",
+      "description": "",
+      "required": false,
+      "template": "",
+      "other_option": []
+    },
+    "p2_sign": {
+      "sample": 5,
+      "datatype": "string",
+      "description": "",
+      "required": false,
+      "template": "",
+      "other_option": []
+    },
+    "node": {
+      "sample": "Northnode",
+      "datatype": "string",
+      "description": "",
+      "required": false,
+      "template": "",
+      "other_option": []
+    },
+    "shuffle_type": {
+      "sample": "both",
+      "datatype": "string",
+      "description": "",
+      "required": false,
+      "template": "",
+      "other_option": [
+        "both",
+        "major",
+        "minor"
+      ]
+    },
+    "card_name": {
+      "sample": "the_fool",
+      "datatype": "string",
+      "description": "",
+      "required": false,
+      "template": "",
+      "other_option": {
+        "the_fool": "the_fool",
+        "the_magician": "the_magician",
+        "the_high_priestess": "the_high_priestess",
+        "the_empress": "the_empress",
+        "the_emperor": "the_emperor",
+        "the_hierophant": "the_hierophant",
+        "the_lovers": "the_lovers",
+        "the_chariot": "the_chariot",
+        "strength": "strength",
+        "the_hermit": "the_hermit",
+        "wheel_of_fortune": "wheel_of_fortune",
+        "justice": "justice",
+        "the_hanged_man": "the_hanged_man",
+        "death": "death",
+        "temperance": "temperance",
+        "the_devil": "the_devil",
+        "the_tower": "the_tower",
+        "the_star": "the_star",
+        "the_moon": "the_moon",
+        "the_sun": "the_sun",
+        "judgement": "judgement",
+        "the_world": "the_world",
+        "ace_of_wands": "ace_of_wands",
+        "two_of_wands": "two_of_wands",
+        "three_of_wands": "three_of_wands",
+        "four_of_wands": "four_of_wands",
+        "five_of_wands": "five_of_wands",
+        "six_of_wands": "six_of_wands",
+        "seven_of_wands": "seven_of_wands",
+        "eight_of_wands": "eight_of_wands",
+        "nine_of_wands": "nine_of_wands",
+        "ten_of_wands": "ten_of_wands",
+        "page_of_wands": "page_of_wands",
+        "knight_of_wands": "knight_of_wands",
+        "queen_of_wands": "queen_of_wands",
+        "king_of_wands": "king_of_wands",
+        "ace_of_cups": "ace_of_cups",
+        "two_of_cups": "two_of_cups",
+        "three_of_cups": "three_of_cups",
+        "four_of_cups": "four_of_cups",
+        "five_of_cups": "five_of_cups",
+        "six_of_cups": "six_of_cups",
+        "seven_of_cups": "seven_of_cups",
+        "eight_of_cups": "eight_of_cups",
+        "nine_of_cups": "nine_of_cups",
+        "ten_of_cups": "ten_of_cups",
+        "page_of_cups": "page_of_cups",
+        "knight_of_cups": "knight_of_cups",
+        "queen_of_cups": "queen_of_cups",
+        "king_of_cups": "king_of_cups",
+        "ace_of_swords": "ace_of_swords",
+        "two_of_swords": "two_of_swords",
+        "three_of_swords": "three_of_swords",
+        "four_of_swords": "four_of_swords",
+        "five_of_swords": "five_of_swords",
+        "six_of_swords": "six_of_swords",
+        "seven_of_swords": "seven_of_swords",
+        "eight_of_swords": "eight_of_swords",
+        "nine_of_swords": "nine_of_swords",
+        "ten_of_swords": "ten_of_swords",
+        "page_of_swords": "page_of_swords",
+        "knight_of_swords": "knight_of_swords",
+        "queen_of_swords": "queen_of_swords",
+        "king_of_swords": "king_of_swords",
+        "ace_of_pentacles": "ace_of_pentacles",
+        "two_of_pentacles": "two_of_pentacles",
+        "three_of_pentacles": "three_of_pentacles",
+        "four_of_pentacles": "four_of_pentacles",
+        "five_of_pentacles": "five_of_pentacles",
+        "six_of_pentacles": "six_of_pentacles",
+        "seven_of_pentacles": "seven_of_pentacles",
+        "eight_of_pentacles": "eight_of_pentacles",
+        "nine_of_pentacles": "nine_of_pentacles",
+        "ten_of_pentacles": "ten_of_pentacles",
+        "page_of_pentacles": "page_of_pentacles",
+        "knight_of_pentacles": "knight_of_pentacles",
+        "queen_of_pentacles": "queen_of_pentacles",
+        "king_of_pentacles": "king_of_pentacles"
+      }
+    },
+    "card_self": {
+      "sample": "the_high_priestess",
+      "datatype": "string",
+      "description": "",
+      "required": false,
+      "template": "",
+      "other_option": {
+        "the_fool": "the_fool",
+        "the_magician": "the_magician",
+        "the_high_priestess": "the_high_priestess",
+        "the_empress": "the_empress",
+        "the_emperor": "the_emperor",
+        "the_hierophant": "the_hierophant",
+        "the_lovers": "the_lovers",
+        "the_chariot": "the_chariot",
+        "strength": "strength",
+        "the_hermit": "the_hermit",
+        "wheel_of_fortune": "wheel_of_fortune",
+        "justice": "justice",
+        "the_hanged_man": "the_hanged_man",
+        "death": "death",
+        "temperance": "temperance",
+        "the_devil": "the_devil",
+        "the_tower": "the_tower",
+        "the_star": "the_star",
+        "the_moon": "the_moon",
+        "the_sun": "the_sun",
+        "judgement": "judgement",
+        "the_world": "the_world"
+      }
+    },
+    "card_lover1": {
+      "sample": "the_empress",
+      "datatype": "string",
+      "description": "",
+      "required": false,
+      "template": "",
+      "other_option": {
+        "the_fool": "the_fool",
+        "the_magician": "the_magician",
+        "the_high_priestess": "the_high_priestess",
+        "the_empress": "the_empress",
+        "the_emperor": "the_emperor",
+        "the_hierophant": "the_hierophant",
+        "the_lovers": "the_lovers",
+        "the_chariot": "the_chariot",
+        "strength": "strength",
+        "the_hermit": "the_hermit",
+        "wheel_of_fortune": "wheel_of_fortune",
+        "justice": "justice",
+        "the_hanged_man": "the_hanged_man",
+        "death": "death",
+        "temperance": "temperance",
+        "the_devil": "the_devil",
+        "the_tower": "the_tower",
+        "the_star": "the_star",
+        "the_moon": "the_moon",
+        "the_sun": "the_sun",
+        "judgement": "judgement",
+        "the_world": "the_world"
+      }
+    },
+    "card_lover2": {
+      "sample": "the_emperor",
+      "datatype": "string",
+      "description": "",
+      "required": false,
+      "template": "",
+      "other_option": {
+        "the_fool": "the_fool",
+        "the_magician": "the_magician",
+        "the_high_priestess": "the_high_priestess",
+        "the_empress": "the_empress",
+        "the_emperor": "the_emperor",
+        "the_hierophant": "the_hierophant",
+        "the_lovers": "the_lovers",
+        "the_chariot": "the_chariot",
+        "strength": "strength",
+        "the_hermit": "the_hermit",
+        "wheel_of_fortune": "wheel_of_fortune",
+        "justice": "justice",
+        "the_hanged_man": "the_hanged_man",
+        "death": "death",
+        "temperance": "temperance",
+        "the_devil": "the_devil",
+        "the_tower": "the_tower",
+        "the_star": "the_star",
+        "the_moon": "the_moon",
+        "the_sun": "the_sun",
+        "judgement": "judgement",
+        "the_world": "the_world"
+      }
+    },
+    "card_cause": {
+      "sample": "wheel_of_fortune",
+      "datatype": "string",
+      "description": "",
+      "required": false,
+      "template": "",
+      "other_option": {
+        "the_fool": "the_fool",
+        "the_magician": "the_magician",
+        "the_high_priestess": "the_high_priestess",
+        "the_empress": "the_empress",
+        "the_emperor": "the_emperor",
+        "the_hierophant": "the_hierophant",
+        "the_lovers": "the_lovers",
+        "the_chariot": "the_chariot",
+        "strength": "strength",
+        "the_hermit": "the_hermit",
+        "wheel_of_fortune": "wheel_of_fortune",
+        "justice": "justice",
+        "the_hanged_man": "the_hanged_man",
+        "death": "death",
+        "temperance": "temperance",
+        "the_devil": "the_devil",
+        "the_tower": "the_tower",
+        "the_star": "the_star",
+        "the_moon": "the_moon",
+        "the_sun": "the_sun",
+        "judgement": "judgement",
+        "the_world": "the_world"
+      }
+    },
+    "card_advise": {
+      "sample": "justice",
+      "datatype": "string",
+      "description": "",
+      "required": false,
+      "template": "",
+      "other_option": {
+        "the_fool": "the_fool",
+        "the_magician": "the_magician",
+        "the_high_priestess": "the_high_priestess",
+        "the_empress": "the_empress",
+        "the_emperor": "the_emperor",
+        "the_hierophant": "the_hierophant",
+        "the_lovers": "the_lovers",
+        "the_chariot": "the_chariot",
+        "strength": "strength",
+        "the_hermit": "the_hermit",
+        "wheel_of_fortune": "wheel_of_fortune",
+        "justice": "justice",
+        "the_hanged_man": "the_hanged_man",
+        "death": "death",
+        "temperance": "temperance",
+        "the_devil": "the_devil",
+        "the_tower": "the_tower",
+        "the_star": "the_star",
+        "the_moon": "the_moon",
+        "the_sun": "the_sun",
+        "judgement": "judgement",
+        "the_world": "the_world"
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "vedicastroapi-documentation": {
+      "command": "node",
+      "args": [
+        "/Users/your-username/Documents/documentation-MCP/build/index.js"
+      ]
+    }
+  }
+}
+
