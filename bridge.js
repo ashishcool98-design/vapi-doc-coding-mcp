@@ -1,6 +1,8 @@
 import express from "express";
 import bodyParser from "body-parser";
 import { spawn } from "child_process";
+import fetch from "node-fetch";
+
 
 console.log("🔥 MCP → HTTP Bridge Loaded");
 
@@ -98,6 +100,43 @@ app.post("/search-features", async (req, res) => {
     res.status(500).json(e);
   }
 });
+app.post("/vedic-api", async (req, res) => {
+  try {
+    const { endpoint, params } = req.body;
+
+    // Validation
+    if (!endpoint || typeof endpoint !== "string") {
+      return res.status(400).json({
+        error: "endpoint (string) is required"
+      });
+    }
+
+    if (!params || typeof params !== "object") {
+      return res.status(400).json({
+        error: "params (object) is required"
+      });
+    }
+
+    // Inject API key securely
+    const queryParams = new URLSearchParams({
+      ...params,
+      api_key: process.env.VEDIC_API_KEY
+    });
+
+    const url = `https://api.vedicastroapi.com/v3-json/${endpoint}?${queryParams}`;
+
+    const response = await fetch(url);
+    const data = await response.json();
+
+    res.json(data);
+  } catch (error) {
+    console.error("Vedic API error:", error);
+    res.status(500).json({
+      error: "Failed to call Vedic Astro API"
+    });
+  }
+});
+
 
 // ---------- START HTTP FIRST ----------
 app.listen(3333, () => {
@@ -109,3 +148,4 @@ app.listen(3333, () => {
 
   mcp.stdout.on("data", (d) => (buffer += d.toString()));
 });
+
