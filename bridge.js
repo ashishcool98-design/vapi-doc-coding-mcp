@@ -1,7 +1,7 @@
 import express from "express";
 import bodyParser from "body-parser";
 import { spawn } from "child_process";
-import fetch from "node-fetch";
+
 
 
 console.log("🔥 MCP → HTTP Bridge Loaded");
