@@ -6,8 +6,13 @@ app.use(express.json());
 
 /**
  * POST /astro
- * User provides ONLY:
- * dob, tob, place, action
+ * User input:
+ * {
+ *   dob: "05/11/1988",
+ *   tob: "14:20",
+ *   place: "Delhi",
+ *   action: "ascendant" | "dasha" | "birth_chart" | "divisional_chart"
+ * }
  */
 
 app.post("/astro", async (req, res) => {
@@ -33,11 +38,12 @@ app.post("/astro", async (req, res) => {
       });
     }
 
-    // 1️⃣ GEO SEARCH ADVANCED (DOCUMENTATION-CORRECT)
+    // 1️⃣ GEO SEARCH ADVANCED (DATE IS REQUIRED)
     const geoUrl =
       `https://api.vedicastroapi.com/v3-json/utilities/geo-search-advanced` +
       `?api_key=${process.env.VEDIC_API_KEY}` +
-      `&city=${encodeURIComponent(place)}`;
+      `&city=${encodeURIComponent(place)}` +
+      `&date=${encodeURIComponent(dob)}`;
 
     const geoRes = await fetch(geoUrl);
     const geoJson = await geoRes.json();
@@ -54,7 +60,6 @@ app.post("/astro", async (req, res) => {
     const lon = Number(location.longitude);
     const tz = Number(location.timezone);
 
-    // 2️⃣ HARD VALIDATION (tz MUST be numeric)
     if (
       Number.isNaN(lat) ||
       Number.isNaN(lon) ||
@@ -65,7 +70,7 @@ app.post("/astro", async (req, res) => {
       });
     }
 
-    // 3️⃣ Select endpoint
+    // 2️⃣ Select correct astrology endpoint
     let endpoint = "";
 
     switch (action) {
@@ -83,7 +88,7 @@ app.post("/astro", async (req, res) => {
         break;
     }
 
-    // 4️⃣ Call Vedic Astro API
+    // 3️⃣ Call Vedic Astro API
     const apiUrl =
       `https://api.vedicastroapi.com/v3-json${endpoint}` +
       `?api_key=${process.env.VEDIC_API_KEY}` +
@@ -102,7 +107,7 @@ app.post("/astro", async (req, res) => {
       action,
       input: { dob, tob, place },
       resolved_location: {
-        name: location.name || place,
+        city: place,
         latitude: lat,
         longitude: lon,
         timezone: tz
