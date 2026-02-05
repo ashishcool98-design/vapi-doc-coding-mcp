@@ -14,10 +14,10 @@ app.post("/astro", async (req, res) => {
       });
     }
 
-    // Normalize place → city only (UI behavior)
+    // Normalize city (same as UI)
     const city = place.split(",")[0].trim();
 
-    // 1️⃣ GEO SEARCH (same endpoint as UI)
+    // 1️⃣ GEO SEARCH
     const geoUrl =
       `https://api.vedicastroapi.com/v3-json/utilities/geo-search` +
       `?api_key=${process.env.VEDIC_API_KEY}` +
@@ -34,18 +34,26 @@ app.post("/astro", async (req, res) => {
 
     const loc = geoJson.response[0];
 
-    // ✅ Use parseFloat (NOT Number)
     const lat = parseFloat(loc.coordinates?.[0]);
     const lon = parseFloat(loc.coordinates?.[1]);
-    const tz = parseFloat(loc.timezone);
 
-    // Final safety check
+    // ✅ FINAL, REQUIRED FIX
+    let tz = loc.timezone;
+
+    // If timezone missing but country is India → force IST
+    if (!tz && loc.country === "IN") {
+      tz = 5.5;
+    }
+
+    tz = parseFloat(tz);
+
     if (!isFinite(lat) || !isFinite(lon) || !isFinite(tz)) {
       return res.status(400).json({
-        error: "Geo API returned non-numeric values",
+        error: "Geo API missing required fields",
         debug: {
           coordinates: loc.coordinates,
-          timezone: loc.timezone
+          timezone: loc.timezone,
+          country: loc.country
         }
       });
     }
@@ -84,5 +92,3 @@ app.post("/astro", async (req, res) => {
 
 const PORT = process.env.PORT || 3333;
 app.listen(PORT, () => {
-  console.log(`Astro API running on port ${PORT}`);
-});
