@@ -14,10 +14,10 @@ app.post("/astro", async (req, res) => {
       });
     }
 
-    // ✅ FIX: CITY ONLY (same as UI)
+    // Normalize place → city only (UI behavior)
     const city = place.split(",")[0].trim();
 
-    // 1️⃣ GEO SEARCH (EXACTLY LIKE UI)
+    // 1️⃣ GEO SEARCH (same endpoint as UI)
     const geoUrl =
       `https://api.vedicastroapi.com/v3-json/utilities/geo-search` +
       `?api_key=${process.env.VEDIC_API_KEY}` +
@@ -34,13 +34,19 @@ app.post("/astro", async (req, res) => {
 
     const loc = geoJson.response[0];
 
-    const lat = Number(loc.coordinates[0]);
-    const lon = Number(loc.coordinates[1]);
-    const tz = Number(loc.timezone);
+    // ✅ Use parseFloat (NOT Number)
+    const lat = parseFloat(loc.coordinates?.[0]);
+    const lon = parseFloat(loc.coordinates?.[1]);
+    const tz = parseFloat(loc.timezone);
 
-    if ([lat, lon, tz].some(Number.isNaN)) {
+    // Final safety check
+    if (!isFinite(lat) || !isFinite(lon) || !isFinite(tz)) {
       return res.status(400).json({
-        error: "Geo API did not return numeric lat/lon/tz"
+        error: "Geo API returned non-numeric values",
+        debug: {
+          coordinates: loc.coordinates,
+          timezone: loc.timezone
+        }
       });
     }
 
@@ -62,7 +68,7 @@ app.post("/astro", async (req, res) => {
       success: true,
       input: { dob, tob, place },
       resolved_location: {
-        city: city,
+        city,
         latitude: lat,
         longitude: lon,
         timezone: tz
