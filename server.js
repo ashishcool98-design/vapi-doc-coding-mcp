@@ -1,42 +1,81 @@
 import express from "express";
+import fetch from "node-fetch";
 
 const app = express();
 app.use(express.json());
 
-// Health check
-app.get("/", (req, res) => {
-  res.json({ status: "ok" });
-});
-
-// Main astrology endpoint
+// ====== ASTRO ENDPOINT (FINAL) ======
 app.post("/astro", async (req, res) => {
   try {
-    const { endpoint, params } = req.body;
+    const { dob, tob, place, action } = req.body;
 
-    if (!endpoint || !params) {
+    if (!dob || !tob || !place || !action) {
       return res.status(400).json({
-        error: "endpoint and params are required"
+        error: "dob, tob, place, and action are required"
       });
     }
 
-    const query = new URLSearchParams({
-      ...params,
-      api_key: process.env.VEDIC_API_KEY
-    }).toString();
+    // STEP 1: GEO SEARCH (place → lat/lon/tz)
+    const geoUrl = `https://api.vedicastroapi.com/v3-json/utilities/geo-search?api_key=${process.env.VEDIC_API_KEY}&city=${encodeURIComponent(place)}`;
+    const geoRes = await fetch(geoUrl);
+    const geo = await geoRes.json();
 
-    const url = `https://api.vedicastroapi.com/v3-json/${endpoint}?${query}`;
+    if (!geo.latitude || !geo.longitude || !geo.timezone) {
+      return res.status(400).json({
+        error: "Unable to resolve location"
+      });
+    }
 
-    const response = await fetch(url);
-    const data = await response.json();
+    const lat = geo.latitude;
+    const lon = geo.longitude;
+    const tz = geo.timezone;
 
-    res.json(data);
+    // STEP 2: MAP ACTION → ASTRO ENDPOINT
+    const endpointMap = {
+      ascendant: "horoscope/ascendant-report",
+      birth_chart: "horoscope/planet-details",
+      dasha: "dashas/maha-dasha",
+      divisional_chart: "horoscope/divisional-charts"
+    };
+
+    const endpoint = endpointMap[action];
+    if (!endpoint) {
+      return res.status(400).json({
+        error: "Invalid action"
+      });
+    }
+
+    // STEP 3: CALL VEDIC ASTRO API
+    const astroUrl =
+      `https://api.vedicastroapi.com/v3-json/${endpoint}` +
+      `?api_key=${process.env.VEDIC_API_KEY}` +
+      `&dob=${dob}` +
+      `&tob=${tob}` +
+      `&lat=${lat}` +
+      `&lon=${lon}` +
+      `&tz=${tz}` +
+      `&lang=en`;
+
+    const astroRes = await fetch(astroUrl);
+    const data = await astroRes.json();
+
+    // STEP 4: RETURN TO GPT
+    res.json({
+      success: true,
+      action,
+      data
+    });
+
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    console.error(err);
+    res.status(500).json({
+      error: "Astrology processing failed"
+    });
   }
 });
 
-// Render port
+// ====== SERVER START ======
 const PORT = process.env.PORT || 3333;
 app.listen(PORT, () => {
-  console.log(`Astro server running on port ${PORT}`);
+  console.log(`Astro API running on port ${PORT}`);
 });
