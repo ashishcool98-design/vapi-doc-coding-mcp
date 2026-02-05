@@ -4,17 +4,6 @@ import fetch from "node-fetch";
 const app = express();
 app.use(express.json());
 
-/**
- * POST /astro
- * User input:
- * {
- *   dob: "05/11/1988",
- *   tob: "14:20",
- *   place: "Delhi",
- *   action: "ascendant" | "dasha" | "birth_chart" | "divisional_chart"
- * }
- */
-
 app.post("/astro", async (req, res) => {
   try {
     const { dob, tob, place, action } = req.body;
@@ -25,20 +14,13 @@ app.post("/astro", async (req, res) => {
       });
     }
 
-    const allowedActions = [
-      "ascendant",
-      "dasha",
-      "birth_chart",
-      "divisional_chart"
-    ];
-
-    if (!allowedActions.includes(action)) {
+    if (action !== "ascendant") {
       return res.status(400).json({
-        error: `Invalid action. Allowed: ${allowedActions.join(", ")}`
+        error: "Only action='ascendant' is supported right now"
       });
     }
 
-    // 1️⃣ GEO SEARCH ADVANCED (DATE IS REQUIRED)
+    // 1️⃣ GEO SEARCH ADVANCED — CORRECT FIELD NAMES
     const geoUrl =
       `https://api.vedicastroapi.com/v3-json/utilities/geo-search-advanced` +
       `?api_key=${process.env.VEDIC_API_KEY}` +
@@ -54,43 +36,22 @@ app.post("/astro", async (req, res) => {
       });
     }
 
-    const location = geoJson.response[0];
+    const loc = geoJson.response[0];
 
-    const lat = Number(location.latitude);
-    const lon = Number(location.longitude);
-    const tz = Number(location.timezone);
+    // ✅ THESE ARE THE CORRECT KEYS
+    const lat = Number(loc.latitude);
+    const lon = Number(loc.longitude);
+    const tz = Number(loc.timezone_offset);
 
-    if (
-      Number.isNaN(lat) ||
-      Number.isNaN(lon) ||
-      Number.isNaN(tz)
-    ) {
+    if ([lat, lon, tz].some(Number.isNaN)) {
       return res.status(400).json({
-        error: "Invalid geo data returned (lat/lon/tz)"
+        error: "Geo API did not return numeric lat/lon/tz"
       });
     }
 
-    // 2️⃣ Select correct astrology endpoint
-    let endpoint = "";
-
-    switch (action) {
-      case "ascendant":
-        endpoint = "/horoscope/ascendant-report";
-        break;
-      case "dasha":
-        endpoint = "/dashas/maha-dasha";
-        break;
-      case "birth_chart":
-        endpoint = "/horoscope/planet-details";
-        break;
-      case "divisional_chart":
-        endpoint = "/horoscope/divisional-charts";
-        break;
-    }
-
-    // 3️⃣ Call Vedic Astro API
-    const apiUrl =
-      `https://api.vedicastroapi.com/v3-json${endpoint}` +
+    // 2️⃣ ASCENDANT API CALL
+    const astroUrl =
+      `https://api.vedicastroapi.com/v3-json/horoscope/ascendant-report` +
       `?api_key=${process.env.VEDIC_API_KEY}` +
       `&dob=${encodeURIComponent(dob)}` +
       `&tob=${encodeURIComponent(tob)}` +
@@ -99,20 +60,18 @@ app.post("/astro", async (req, res) => {
       `&tz=${tz}` +
       `&lang=en`;
 
-    const apiRes = await fetch(apiUrl);
-    const apiJson = await apiRes.json();
+    const astroRes = await fetch(astroUrl);
+    const astroJson = await astroRes.json();
 
     res.json({
       success: true,
-      action,
       input: { dob, tob, place },
       resolved_location: {
-        city: place,
         latitude: lat,
         longitude: lon,
         timezone: tz
       },
-      data: apiJson
+      data: astroJson
     });
 
   } catch (err) {
