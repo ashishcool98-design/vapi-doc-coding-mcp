@@ -14,24 +14,26 @@ app.post("/astro", async (req, res) => {
       });
     }
 
-    // 1️⃣ GEO SEARCH — SAME AS UI
+    // ✅ FIX: CITY ONLY (same as UI)
+    const city = place.split(",")[0].trim();
+
+    // 1️⃣ GEO SEARCH (EXACTLY LIKE UI)
     const geoUrl =
       `https://api.vedicastroapi.com/v3-json/utilities/geo-search` +
       `?api_key=${process.env.VEDIC_API_KEY}` +
-      `&city=${encodeURIComponent(place)}`;
+      `&city=${encodeURIComponent(city)}`;
 
     const geoRes = await fetch(geoUrl);
     const geoJson = await geoRes.json();
 
     if (!geoJson?.response?.length) {
       return res.status(400).json({
-        error: `Unable to resolve location for city: ${place}`
+        error: `Unable to resolve location for city: ${city}`
       });
     }
 
     const loc = geoJson.response[0];
 
-    // ✅ EXACTLY as per UI response
     const lat = Number(loc.coordinates[0]);
     const lon = Number(loc.coordinates[1]);
     const tz = Number(loc.timezone);
@@ -60,7 +62,7 @@ app.post("/astro", async (req, res) => {
       success: true,
       input: { dob, tob, place },
       resolved_location: {
-        name: loc.full_name,
+        city: city,
         latitude: lat,
         longitude: lon,
         timezone: tz
