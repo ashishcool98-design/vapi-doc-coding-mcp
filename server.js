@@ -48,7 +48,29 @@ app.post("/astro", async (req, res) => {
     const location = geoJson.response[0];
     const lat = location.coordinates[0];
     const lon = location.coordinates[1];
-    const tz = location.timezone;
+    let tz = location.timezone;
+
+// Ensure tz is a NUMBER (API requirement)
+if (typeof tz !== "number") {
+  // Fallback for common international timezones
+  const tzFallbackMap = {
+    "America/New_York": -5,
+    "America/Los_Angeles": -8,
+    "America/Chicago": -6,
+    "Europe/London": 0,
+    "Europe/Paris": 1
+  };
+
+  tz = tzFallbackMap[location.timezone];
+}
+
+// Final safety check
+if (typeof tz !== "number") {
+  return res.status(400).json({
+    error: "Unable to determine numeric timezone (tz)"
+  });
+}
+
 
     // 3️⃣ HOROSCOPE → ASCENDANT REPORT
     const horoscopeUrl =
