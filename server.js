@@ -6,20 +6,14 @@ app.use(express.json());
 
 /**
  * POST /astro
- * Input:
- * {
- *   "dob": "05/11/1988",
- *   "tob": "14:20",
- *   "place": "Delhi",
- *   "action": "ascendant" | "dasha" | "birth_chart" | "divisional_chart"
- * }
+ * User provides ONLY:
+ * dob, tob, place, action
  */
 
 app.post("/astro", async (req, res) => {
   try {
     const { dob, tob, place, action } = req.body;
 
-    // 1️⃣ Basic validation
     if (!dob || !tob || !place || !action) {
       return res.status(400).json({
         error: "dob, tob, place and action are required"
@@ -35,13 +29,13 @@ app.post("/astro", async (req, res) => {
 
     if (!allowedActions.includes(action)) {
       return res.status(400).json({
-        error: `Invalid action. Allowed actions: ${allowedActions.join(", ")}`
+        error: `Invalid action. Allowed: ${allowedActions.join(", ")}`
       });
     }
 
-    // 2️⃣ GEO SEARCH (Utilities → Geo Search)
+    // 1️⃣ GEO SEARCH ADVANCED (DOCUMENTATION-CORRECT)
     const geoUrl =
-      `https://api.vedicastroapi.com/v3-json/utilities/geo-search` +
+      `https://api.vedicastroapi.com/v3-json/utilities/geo-search-advanced` +
       `?api_key=${process.env.VEDIC_API_KEY}` +
       `&city=${encodeURIComponent(place)}`;
 
@@ -55,51 +49,41 @@ app.post("/astro", async (req, res) => {
     }
 
     const location = geoJson.response[0];
-    const lat = location.coordinates[0];
-    const lon = location.coordinates[1];
-    let tz = location.timezone;
 
-    // 3️⃣ Ensure numeric timezone (STRICT requirement)
-    if (typeof tz !== "number") {
-      const tzFallbackMap = {
-        "Asia/Kolkata": 5.5,
-        "Europe/London": 0,
-        "America/New_York": -5,
-        "America/Los_Angeles": -8,
-        "America/Chicago": -6,
-        "Europe/Paris": 1
-      };
-      tz = tzFallbackMap[location.timezone];
-    }
+    const lat = Number(location.latitude);
+    const lon = Number(location.longitude);
+    const tz = Number(location.timezone);
 
-    if (typeof tz !== "number") {
+    // 2️⃣ HARD VALIDATION (tz MUST be numeric)
+    if (
+      Number.isNaN(lat) ||
+      Number.isNaN(lon) ||
+      Number.isNaN(tz)
+    ) {
       return res.status(400).json({
-        error: "Unable to determine numeric timezone (tz)"
+        error: "Invalid geo data returned (lat/lon/tz)"
       });
     }
 
-    // 4️⃣ Select correct Vedic Astro endpoint
+    // 3️⃣ Select endpoint
     let endpoint = "";
 
     switch (action) {
       case "ascendant":
         endpoint = "/horoscope/ascendant-report";
         break;
-
       case "dasha":
         endpoint = "/dashas/maha-dasha";
         break;
-
       case "birth_chart":
         endpoint = "/horoscope/planet-details";
         break;
-
       case "divisional_chart":
         endpoint = "/horoscope/divisional-charts";
         break;
     }
 
-    // 5️⃣ Call Vedic Astro API
+    // 4️⃣ Call Vedic Astro API
     const apiUrl =
       `https://api.vedicastroapi.com/v3-json${endpoint}` +
       `?api_key=${process.env.VEDIC_API_KEY}` +
@@ -113,17 +97,12 @@ app.post("/astro", async (req, res) => {
     const apiRes = await fetch(apiUrl);
     const apiJson = await apiRes.json();
 
-    // 6️⃣ Return unified response
     res.json({
       success: true,
       action,
-      input: {
-        dob,
-        tob,
-        place
-      },
+      input: { dob, tob, place },
       resolved_location: {
-        name: location.full_name,
+        name: location.name || place,
         latitude: lat,
         longitude: lon,
         timezone: tz
