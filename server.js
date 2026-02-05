@@ -4,20 +4,31 @@ import fetch from "node-fetch";
 const app = express();
 app.use(express.json());
 
+/**
+ * POST /astro
+ * Input:
+ * {
+ *   "dob": "20/02/1991",
+ *   "tob": "06:30",
+ *   "place": "Mumbai, India",
+ *   "action": "ascendant"
+ * }
+ */
+
 app.post("/astro", async (req, res) => {
   try {
     const { dob, tob, place, action } = req.body;
 
+    // 1️⃣ Validate input (STRICT)
     if (!dob || !tob || !place || action !== "ascendant") {
       return res.status(400).json({
         error: "dob, tob, place are required and action must be 'ascendant'"
       });
     }
 
-    // Normalize city (same as UI)
+    // 2️⃣ GEO SEARCH (Utilities → Geo Search)
     const city = place.split(",")[0].trim();
 
-    // 1️⃣ GEO SEARCH
     const geoUrl =
       `https://api.vedicastroapi.com/v3-json/utilities/geo-search` +
       `?api_key=${process.env.VEDIC_API_KEY}` +
@@ -26,40 +37,40 @@ app.post("/astro", async (req, res) => {
     const geoRes = await fetch(geoUrl);
     const geoJson = await geoRes.json();
 
-    if (!geoJson?.response?.length) {
+    if (
+      !geoJson ||
+      !Array.isArray(geoJson.response) ||
+      geoJson.response.length === 0
+    ) {
       return res.status(400).json({
-        error: `Unable to resolve location for city: ${city}`
+        error: `Unable to resolve location for city: ${place}`
       });
     }
 
-    const loc = geoJson.response[0];
+    // ✅ USE FIRST MATCH (as per documentation & UI)
+    const location = geoJson.response[0];
 
-    const lat = parseFloat(loc.coordinates?.[0]);
-    const lon = parseFloat(loc.coordinates?.[1]);
+    // 🔥 CRITICAL FIX — PARSE STRINGS → NUMBERS
+    const lat = parseFloat(location.coordinates[0]);
+    const lon = parseFloat(location.coordinates[1]);
+    const tz = Number(location.tz);
 
-    // ✅ FINAL, REQUIRED FIX
-    let tz = loc.timezone;
-
-    // If timezone missing but country is India → force IST
-    if (!tz && loc.country === "IN") {
-      tz = 5.5;
-    }
-
-    tz = parseFloat(tz);
-
-    if (!isFinite(lat) || !isFinite(lon) || !isFinite(tz)) {
+    if (
+      Number.isNaN(lat) ||
+      Number.isNaN(lon) ||
+      Number.isNaN(tz)
+    ) {
       return res.status(400).json({
-        error: "Geo API missing required fields",
+        error: "Invalid geo data returned",
         debug: {
-          coordinates: loc.coordinates,
-          timezone: loc.timezone,
-          country: loc.country
+          coordinates: location.coordinates,
+          tz: location.tz
         }
       });
     }
 
-    // 2️⃣ ASCENDANT API
-    const astroUrl =
+    // 3️⃣ HOROSCOPE → ASCENDANT REPORT (DOC-CORRECT)
+    const horoscopeUrl =
       `https://api.vedicastroapi.com/v3-json/horoscope/ascendant-report` +
       `?api_key=${process.env.VEDIC_API_KEY}` +
       `&dob=${encodeURIComponent(dob)}` +
@@ -69,26 +80,31 @@ app.post("/astro", async (req, res) => {
       `&tz=${tz}` +
       `&lang=en`;
 
-    const astroRes = await fetch(astroUrl);
-    const astroJson = await astroRes.json();
+    const horoscopeRes = await fetch(horoscopeUrl);
+    const horoscopeJson = await horoscopeRes.json();
 
+    // 4️⃣ RETURN FINAL RESPONSE
     res.json({
       success: true,
       input: { dob, tob, place },
       resolved_location: {
-        city,
-        latitude: lat,
-        longitude: lon,
-        timezone: tz
+        name: location.full_name,
+        lat,
+        lon,
+        tz
       },
-      data: astroJson
+      data: horoscopeJson
     });
 
   } catch (err) {
     console.error(err);
-    res.status(500).json({ error: "Internal server error" });
+    res.status(500).json({
+      error: "Internal server error"
+    });
   }
 });
 
 const PORT = process.env.PORT || 3333;
 app.listen(PORT, () => {
+  console.log(`Astro API running on port ${PORT}`);
+});

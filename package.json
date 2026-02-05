@@ -1,7 +1,8 @@
 {
-  "name": "vedic-astro-render-api",
+  "name": "vedicastro-gpt-server",
   "version": "1.0.0",
   "type": "module",
+  "main": "server.js",
   "scripts": {
     "start": "node server.js"
   },
