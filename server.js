@@ -4,53 +4,79 @@ import fetch from "node-fetch";
 const app = express();
 app.use(express.json());
 
-/**
- * POST /astro
- * Input (from GPT):
- * {
- *   dob: "04/10/1989",
- *   tob: "01:20",
- *   place: "Mumbai, India",
- *   action: "ascendant"
- * }
- */
+/*
+ POST /astro
+ Input from GPT:
+ {
+   "dob": "04/10/1989",
+   "tob": "01:20",
+   "place": "New York, USA",
+   "action": "dasha"
+ }
+*/
+
 app.post("/astro", async (req, res) => {
   try {
     const { dob, tob, place, action } = req.body;
 
-    // ✅ REQUIRED FIELDS CHECK
+    // ===============================
+    // 1️⃣ BASIC VALIDATION
+    // ===============================
     if (!dob || !tob || !place || !action) {
       return res.status(400).json({
         error: "dob, tob, place, and action are required"
       });
     }
 
-    // ✅ DOC RULE: CITY ONLY (no country/state)
+    // ===============================
+    // 2️⃣ CITY NORMALIZATION (DOC RULE)
+    // ===============================
+    // "New York, USA" → "New York"
     const city = place.split(",")[0].trim();
 
+    let lat, lon, tz;
+
     // ===============================
-    // STEP 1: GEO SEARCH (DOC STRICT)
+    // 3️⃣ GEO SEARCH (DOC STRICT)
     // ===============================
-    const geoUrl =
+
+    // ---- Try BASIC geo-search first
+    const geoBasicUrl =
       `https://api.vedicastroapi.com/v3-json/utilities/geo-search` +
       `?api_key=${process.env.VEDIC_API_KEY}` +
       `&city=${encodeURIComponent(city)}`;
 
-    const geoRes = await fetch(geoUrl);
-    const geo = await geoRes.json();
+    const geoBasicRes = await fetch(geoBasicUrl);
+    const geoBasic = await geoBasicRes.json();
 
-    if (!geo.latitude || !geo.longitude || !geo.timezone) {
-      return res.status(400).json({
-        error: `Unable to resolve location for city: ${city}`
-      });
+    if (geoBasic?.latitude && geoBasic?.longitude && geoBasic?.timezone) {
+      lat = geoBasic.latitude;
+      lon = geoBasic.longitude;
+      tz = geoBasic.timezone;
+    } else {
+      // ---- Fallback: ADVANCED geo-search (REQUIRED FOR INTERNATIONAL CITIES)
+      const geoAdvancedUrl =
+        `https://api.vedicastroapi.com/v3-json/utilities/geo-search-advanced` +
+        `?api_key=${process.env.VEDIC_API_KEY}` +
+        `&city=${encodeURIComponent(city)}` +
+        `&date=${encodeURIComponent(dob)}`;
+
+      const geoAdvRes = await fetch(geoAdvancedUrl);
+      const geoAdv = await geoAdvRes.json();
+
+      if (!geoAdv?.latitude || !geoAdv?.longitude || !geoAdv?.timezone) {
+        return res.status(400).json({
+          error: `Unable to resolve location for city: ${city}`
+        });
+      }
+
+      lat = geoAdv.latitude;
+      lon = geoAdv.longitude;
+      tz = geoAdv.timezone;
     }
 
-    const lat = geo.latitude;
-    const lon = geo.longitude;
-    const tz = geo.timezone;
-
     // ===============================
-    // STEP 2: ACTION → ENDPOINT MAP
+    // 4️⃣ ACTION → API ENDPOINT MAP
     // ===============================
     const actionMap = {
       ascendant: "horoscope/ascendant-report",
@@ -67,7 +93,7 @@ app.post("/astro", async (req, res) => {
     }
 
     // ===============================
-    // STEP 3: ASTROLOGY API CALL
+    // 5️⃣ CALL VEDIC ASTRO API (DOC STRICT)
     // ===============================
     const astroUrl =
       `https://api.vedicastroapi.com/v3-json/${endpoint}` +
@@ -83,14 +109,14 @@ app.post("/astro", async (req, res) => {
     const astroData = await astroRes.json();
 
     // ===============================
-    // STEP 4: RETURN TO GPT
+    // 6️⃣ RETURN RESPONSE TO GPT
     // ===============================
     res.json({
       success: true,
       city,
-      lat,
-      lon,
-      tz,
+      latitude: lat,
+      longitude: lon,
+      timezone: tz,
       action,
       data: astroData
     });
@@ -103,7 +129,9 @@ app.post("/astro", async (req, res) => {
   }
 });
 
-// SERVER START
+// ===============================
+// 7️⃣ START SERVER
+// ===============================
 const PORT = process.env.PORT || 3333;
 app.listen(PORT, () => {
   console.log(`Astro API running on port ${PORT}`);
