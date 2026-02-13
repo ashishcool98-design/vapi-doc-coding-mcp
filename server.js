@@ -1,3 +1,6 @@
+import dotenv from "dotenv";
+dotenv.config();
+
 import express from "express";
 import fetch from "node-fetch";
 import { createClient } from "@supabase/supabase-js";
@@ -90,14 +93,15 @@ app.post("/astro", async (req, res) => {
       throw new Error("Unable to resolve location");
     }
 
-    const location = geoJson.response[0];
-    const lat = parseFloat(location.coordinates[0]);
-    const lon = parseFloat(location.coordinates[1]);
-    const tz = Number(location.tz);
+const location = geoJson.response[0];
+const lat = parseFloat(location.coordinates[0]);
+const lon = parseFloat(location.coordinates[1]);
+const tz = Number(location.tz);
 
-    if (Number.isNaN(lat) || Number.isNaN(lon) || Number.isNaN(tz)) {
-      throw new Error("Invalid geo data returned");
-    }
+if (Number.isNaN(lat) || Number.isNaN(lon) || Number.isNaN(tz)) {
+  throw new Error("Invalid geo data returned");
+}
+
 
     let endpoint = "";
 
