@@ -1,3 +1,11 @@
+import { createClient } from "@supabase/supabase-js";
+
+const supabase = createClient(
+  process.env.SUPABASE_URL,
+  process.env.SUPABASE_KEY
+);
+
+
 import express from "express";
 import fetch from "node-fetch";
 
@@ -62,10 +70,11 @@ app.get("/privacy", (req, res) => {
 
 
 app.post("/astro", async (req, res) => {
+  const startTime = Date.now();
+
   try {
     const { dob, tob, place, action, div = "D1" } = req.body;
 
-    // 1️⃣ Validate input
     if (!dob || !tob || !place || !action) {
       return res.status(400).json({
         error: "dob, tob, place, action are required"
@@ -87,7 +96,6 @@ app.post("/astro", async (req, res) => {
       });
     }
 
-    // 2️⃣ GEO SEARCH (DOC-CORRECT)
     const city = place.split(",")[0].trim();
 
     const geoUrl =
@@ -99,9 +107,7 @@ app.post("/astro", async (req, res) => {
     const geoJson = await geoRes.json();
 
     if (!geoJson?.response?.length) {
-      return res.status(400).json({
-        error: `Unable to resolve location for city: ${place}`
-      });
+      throw new Error(`Unable to resolve location`);
     }
 
     const location = geoJson.response[0];
@@ -110,13 +116,9 @@ app.post("/astro", async (req, res) => {
     const tz = Number(location.tz);
 
     if (Number.isNaN(lat) || Number.isNaN(lon) || Number.isNaN(tz)) {
-      return res.status(400).json({
-        error: "Invalid geo data returned",
-        debug: location
-      });
+      throw new Error("Invalid geo data returned");
     }
 
-    // 3️⃣ MAP ACTION → API ENDPOINT
     let endpoint = "";
 
     switch (action) {
@@ -127,7 +129,7 @@ app.post("/astro", async (req, res) => {
         endpoint = "horoscope/planet-details";
         break;
       case "divisional_chart":
-        endpoint = `horoscope/divisional-charts&div=${div}`;
+        endpoint = "horoscope/divisional-charts";
         break;
       case "maha_dasha":
         endpoint = "dashas/maha-dasha";
@@ -139,6 +141,73 @@ app.post("/astro", async (req, res) => {
         endpoint = "dashas/current-mahadasha";
         break;
     }
+
+    let apiUrl =
+      `https://api.vedicastroapi.com/v3-json/${endpoint}` +
+      `?api_key=${process.env.VEDIC_API_KEY}` +
+      `&dob=${encodeURIComponent(dob)}` +
+      `&tob=${encodeURIComponent(tob)}` +
+      `&lat=${lat}` +
+      `&lon=${lon}` +
+      `&tz=${tz}` +
+      `&lang=en`;
+
+    if (action === "divisional_chart") {
+      apiUrl += `&div=${div}`;
+    }
+
+    const apiRes = await fetch(apiUrl);
+    const apiJson = await apiRes.json();
+
+    const responseTime = Date.now() - startTime;
+
+    // 🔹 SAVE ANALYTICS (NO PERSONAL DATA)
+    let country = place.includes(",")
+      ? place.split(",").pop().trim()
+      : "Unknown";
+
+    await supabase.from("analytics").insert([
+      {
+        timestamp: new Date(),
+        action: action,
+        country: country,
+        success: true,
+        response_time_ms: responseTime,
+        error: null
+      }
+    ]);
+
+    res.json({
+      success: true,
+      action,
+      resolved_location: {
+        name: location.full_name,
+        lat,
+        lon,
+        tz
+      },
+      data: apiJson
+    });
+
+  } catch (err) {
+    console.error(err);
+
+    await supabase.from("analytics").insert([
+      {
+        timestamp: new Date(),
+        action: req.body?.action || null,
+        country: null,
+        success: false,
+        response_time_ms: null,
+        error: err.message
+      }
+    ]);
+
+    res.status(500).json({
+      error: err.message || "Internal server error"
+    });
+  }
+});
 
     // 4️⃣ CALL VEDIC ASTRO API
     const apiUrl =
