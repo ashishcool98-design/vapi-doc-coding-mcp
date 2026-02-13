@@ -1,13 +1,11 @@
+import express from "express";
+import fetch from "node-fetch";
 import { createClient } from "@supabase/supabase-js";
 
 const supabase = createClient(
   process.env.SUPABASE_URL,
   process.env.SUPABASE_KEY
 );
-
-
-import express from "express";
-import fetch from "node-fetch";
 
 const app = express();
 app.use(express.json());
@@ -23,9 +21,8 @@ app.get("/privacy", (req, res) => {
         <h1>Privacy Policy</h1>
 
         <p>
-          This GPT ("Astro GPT") processes user-provided information such as
-          date of birth, time of birth, and place of birth solely for the
-          purpose of generating Vedic astrology insights.
+          This GPT processes user-provided birth details solely to generate
+          Vedic astrology insights.
         </p>
 
         <h2>What data is collected</h2>
@@ -35,39 +32,22 @@ app.get("/privacy", (req, res) => {
           <li>Place of birth</li>
         </ul>
 
-        <h2>How data is used</h2>
-        <ul>
-          <li>
-            The data is sent securely to a backend service to calculate
-            astrology results.
-          </li>
-          <li>
-            The data is forwarded to a third-party astrology API (Vedic Astro API)
-            only to generate the requested results.
-          </li>
-        </ul>
-
-        <h2>What data is NOT collected</h2>
-        <ul>
-          <li>No names, emails, phone numbers, or identifiers</li>
-          <li>No data is sold or used for marketing</li>
-        </ul>
+        <h2>Analytics</h2>
+        <p>
+          We collect anonymous usage analytics such as feature usage and
+          country-level data to improve service quality.
+          No personal birth data is stored.
+        </p>
 
         <h2>Data storage</h2>
         <p>
-          No personal data is permanently stored. All requests are processed
-          in real time and discarded after the response is returned.
-        </p>
-
-        <p>
-          By using this service, you consent to the processing of your input
-          solely for astrology-related computations.
+          All personal input is processed in real time and discarded after
+          the response is returned.
         </p>
       </body>
     </html>
   `);
 });
-
 
 app.post("/astro", async (req, res) => {
   const startTime = Date.now();
@@ -107,7 +87,7 @@ app.post("/astro", async (req, res) => {
     const geoJson = await geoRes.json();
 
     if (!geoJson?.response?.length) {
-      throw new Error(`Unable to resolve location`);
+      throw new Error("Unable to resolve location");
     }
 
     const location = geoJson.response[0];
@@ -161,23 +141,22 @@ app.post("/astro", async (req, res) => {
 
     const responseTime = Date.now() - startTime;
 
-    // 🔹 SAVE ANALYTICS (NO PERSONAL DATA)
-    let country = place.includes(",")
+    const country = place.includes(",")
       ? place.split(",").pop().trim()
       : "Unknown";
 
     await supabase.from("analytics").insert([
       {
         timestamp: new Date(),
-        action: action,
-        country: country,
+        action,
+        country,
         success: true,
         response_time_ms: responseTime,
         error: null
       }
     ]);
 
-    res.json({
+    return res.json({
       success: true,
       action,
       resolved_location: {
@@ -203,46 +182,14 @@ app.post("/astro", async (req, res) => {
       }
     ]);
 
-    res.status(500).json({
+    return res.status(500).json({
       error: err.message || "Internal server error"
     });
   }
 });
 
-    // 4️⃣ CALL VEDIC ASTRO API
-    const apiUrl =
-      `https://api.vedicastroapi.com/v3-json/${endpoint}` +
-      `?api_key=${process.env.VEDIC_API_KEY}` +
-      `&dob=${encodeURIComponent(dob)}` +
-      `&tob=${encodeURIComponent(tob)}` +
-      `&lat=${lat}` +
-      `&lon=${lon}` +
-      `&tz=${tz}` +
-      `&lang=en`;
-
-    const apiRes = await fetch(apiUrl);
-    const apiJson = await apiRes.json();
-
-    // 5️⃣ RETURN RESULT
-    res.json({
-      success: true,
-      action,
-      resolved_location: {
-        name: location.full_name,
-        lat,
-        lon,
-        tz
-      },
-      data: apiJson
-    });
-
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: "Internal server error" });
-  }
-});
-
 const PORT = process.env.PORT || 3333;
+
 app.listen(PORT, () => {
   console.log(`Astro API running on port ${PORT}`);
 });
